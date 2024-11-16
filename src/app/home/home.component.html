@@ -433,7 +433,7 @@
                 <!-- Pied de page de la section de services Start -->
                 <div class="services-box-footer wow fadeInUp" data-wow-delay="1s">
                     <p>Découvrez l'ensemble de nos services de location de voitures, conçus pour répondre à tous vos besoins de transport. Que ce soit pour un voyage d'affaires, des vacances ou des déplacements privés, nous avons une solution pour vous.</p>
-                    <a  class="btn-default">Voir tous nos services</a>
+                    <a href="/service" class="btn-default">Voir tous nos services</a>
                 </div>
                 <!-- Pied de page de la section de services End -->
             </div>
@@ -540,7 +540,7 @@
                     <div class="luxury-collection-item wow fadeInUp" *ngFor="let blog of blogs">
                         <!-- Luxury Collection Image Start -->
                         <div class="luxury-collection-image" data-cursor-text="View">
-                            <a >
+                            <a [href]="'/blog-detail?id=' + blog.id">
                                 <figure>
                                     <img [src]="blog.imageUrl" [alt]="blog.title">
 
@@ -1050,7 +1050,7 @@
 
                     <!-- Bouton CTA Start -->
                     <div class="cta-box-btn wow fadeInUp" data-wow-delay="0.5s">
-                        <a  class="btn-default">Contactez-nous</a>
+                        <a href="/contactez-nous" class="btn-default">Contactez-nous</a>
                     </div>
                     <!-- Bouton CTA End -->
                 </div>
@@ -1142,7 +1142,7 @@
                 <!-- Article Post End -->
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 phone" >
                         <!-- Article Post Start -->
                         <div class="article-post wow fadeInUp">
                             <div class="article-featured-img">

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { PreloaderComponent } from '../preloader/preloader.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 declare var $: any;
@@ -11,7 +13,7 @@ declare var WOW: any;
 @Component({
   selector: 'app-about-us',
   standalone: true,
-  imports: [HeaderComponent,FooterComponent,PreloaderComponent],
+  imports: [HeaderComponent,FooterComponent,PreloaderComponent,CommonModule, FormsModule],
   templateUrl: './about-us.component.html',
   styleUrl: './about-us.component.css'
 })
