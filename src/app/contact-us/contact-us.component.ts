@@ -2,17 +2,50 @@ import { Component } from '@angular/core';
 import { FooterComponent } from "../footer/footer.component";
 import { PreloaderComponent } from "../preloader/preloader.component";
 import { HeaderComponent } from "../header/header.component";
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 declare var $: any;
 declare var Swiper: any;
 declare var WOW: any;
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [FooterComponent, PreloaderComponent, HeaderComponent],
+  imports: [FooterComponent, PreloaderComponent, HeaderComponent, CommonModule, FormsModule],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css'
 })
 export class ContactUsComponent {
+  formData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  };
+
+  sendMessage() {
+    const { firstName, lastName, email, phone, message } = this.formData;
+
+    // Construct WhatsApp message
+    const whatsappMessage = `Bonjour, je suis ${firstName} ${lastName}. 
+Email: ${email}
+Téléphone: ${phone}
+Message: ${message}`;
+
+    // Encode message and create WhatsApp URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappUrl = `https://wa.me/212699050501?text=${encodedMessage}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+    this.formData = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: ''
+    };
+  }
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
