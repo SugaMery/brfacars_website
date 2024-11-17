@@ -540,7 +540,7 @@
                     <div class="luxury-collection-item wow fadeInUp" *ngFor="let blog of blogs">
                         <!-- Luxury Collection Image Start -->
                         <div class="luxury-collection-image" data-cursor-text="View">
-                            <a [href]="'/blog-detail?id=' + blog.id">
+                            <a [href]="'/blog-detail?id=' + blog.id+'&titre='+formatTitle(blog.title)">
                                 <figure>
                                     <img [src]="blog.imageUrl" [alt]="blog.title">
 
@@ -557,7 +557,7 @@
                         
                         <!-- Luxury Collection Btn Start -->
                         <div class="luxury-collection-btn">
-                            <a  [href]="'/blog-detail?id=' + blog.id" class="section-icon-btn"><img src="../../assets/images/arrow-white.svg" alt=""></a>
+                            <a  [href]="'/blog-detail?id=' + blog.id+'&titre='+formatTitle(blog.title)" class="section-icon-btn"><img src="../../assets/images/arrow-white.svg" alt=""></a>
                         </div>
                         <!-- Luxury Collection Btn End -->
                     </div>

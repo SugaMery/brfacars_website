@@ -66,7 +66,7 @@ export class BlogService {
   id: 2,
   title: 'Casablanca : Entre Modernité et Tradition',
   description: 'Casablanca, la capitale économique du Maroc, allie modernité et traditions. Voici ce que vous devez savoir avant de visiter cette ville dynamique.',
-  imageUrl: '../../assets/images/city-casablanca1.png',
+  imageUrl: '../../assets/images/city-casablanca2.jpg',
   publishDate: 'Novembre 2024',
   author: 'Sara B.',
   quote: 'Casablanca incarne la rencontre parfaite entre le passé et le futur.',

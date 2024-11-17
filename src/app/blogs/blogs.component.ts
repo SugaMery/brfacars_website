@@ -106,10 +106,33 @@ export class BlogsComponent {
 
 
   // Method to load blogs using BlogService
+  displayedBlogs: Blog[] = [];
+  currentPage: number = 1;
+  pageSize: number = 5; // Number of blogs per page
+  totalBlogs: number = 0;
+
   loadBlogs(): void {
     this.blogService.getBlogs().subscribe((data: Blog[]) => {
-      console.log("fffff",data)
-      this.blogs = data;  // Assign the fetched data to blogs array
+      this.blogs = data;
+      this.totalBlogs = data.length;
+      this.updateDisplayedBlogs();
     });
+  }
+
+  updateDisplayedBlogs(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.displayedBlogs = this.blogs.slice(startIndex, endIndex);
+  }
+
+  goToPage(page: number): void {
+    if (page > 0 && page <= this.totalPages()) {
+      this.currentPage = page;
+      this.updateDisplayedBlogs();
+    }
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.totalBlogs / this.pageSize);
   }
 }

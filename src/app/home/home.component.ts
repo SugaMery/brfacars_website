@@ -36,6 +36,15 @@ export class HomeComponent implements OnInit {
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
 
   }
+
+  formatTitle(title: string): string {
+    return title
+      .toLowerCase() // Convert to lowercase
+      .normalize('NFD') // Normalize the string
+      .replace(/[\u0300-\u036f]/g, '') // Remove accents
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/[^\w-]+/g, ''); // Remove any non-word characters (except hyphens)
+  }
   selectedCategory: string = '';
   selectedLieu: string = '';
   selectedLieuRetour: string = '';
