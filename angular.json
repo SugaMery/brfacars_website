@@ -25,7 +25,8 @@
               "src/assets",
               "src/assets/plugins",
               "src/_redirects",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/google4f95420c62233e8a.html"
             ],
             "styles": [
               "src/styles.css"
@@ -92,7 +93,8 @@
               "src/assets",
               "src/assets/plugins",
               "src/_redirects",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/google4f95420c62233e8a.html"
                         ],
             "styles": [
               "src/styles.css"
