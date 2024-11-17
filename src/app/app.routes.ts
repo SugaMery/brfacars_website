@@ -7,6 +7,7 @@ import { ServicesComponent } from './services/services.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const  routes: Routes = [
     { path: '', component: HomeComponent },
@@ -18,7 +19,8 @@ export const  routes: Routes = [
     {path: 'blogs' , component: BlogsComponent},
     { path: 'blog-detail', component: BlogDetailComponent },
     { path: 'contactez-nous', component: ContactUsComponent },
-
+  // Wildcard route for handling undefined routes
+  { path: '**', component: NotFoundComponent },
 /*     {path: 'reservation/:title/:model/:fuel/:year/:transmission/:price/:category' , component: ReservationComponent}
  */
 {path: 'reservation' , component: ReservationComponent}

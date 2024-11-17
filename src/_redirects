@@ -1,1 +1,21 @@
-/* /index.html 200
+server {
+    listen 80;
+    server_name brfacars.com;
+
+    # Set the correct path to your Angular app
+    root /var/www/brfacars.com/dist/brfacars-website;
+    index index.html;
+
+    # Handle client-side routing with Angular
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Handle 404 error
+    error_page 404 /404.html;
+
+    location = /404.html {
+        root /var/www/brfacars.com/dist/brfacars-website;
+        internal;
+    }
+}
