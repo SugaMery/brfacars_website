@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-preloader',
@@ -9,40 +9,31 @@ import { Component, Inject, PLATFORM_ID } from '@angular/core';
   styleUrl: './preloader.component.css'
 })
 export class PreloaderComponent {
-  constructor(@Inject(PLATFORM_ID) private platformId: any) {}
+  constructor() { }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      // Use window.onload to ensure all resources are loaded
-      window.onload = () => {
-        setTimeout(() => {
-          this.hidePreloader();
-        }, 850); // Adjust delay as needed
-      };
+    const preloader = document.querySelector('.preloader') as HTMLElement;
 
-      // Fallback for iOS devices in case window.onload doesn't work
-      // iOS sometimes doesn't fire window.onload correctly
-      setTimeout(() => {
-        this.hidePreloader();
-      }, 4000); // Adjust timeout as needed
-    }
-  }
-
-  hidePreloader(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const preloader = document.getElementById('preloader-active');
+    // Masquer le préchargeur après que la fenêtre a chargé
+    const hidePreloader = () => {
       if (preloader) {
-        preloader.style.display = 'none';
+        preloader.style.transition = 'opacity 0.6s ease-out'; // Appliquer une transition
+        preloader.style.opacity = '0'; // Faire disparaître le préchargeur
+        setTimeout(() => {
+          preloader.style.display = 'none'; // Masquer complètement
+        }, 600); // Correspond à la durée de la transition
       }
-      document.body.style.overflow = 'visible';
+    };
 
-      const modal = document.getElementById('onloadModal');
-      if (modal) {
-        // Assuming you are using Bootstrap modal
-        // If not, replace this with appropriate code to show your modal
-        (window as any).$('#onloadModal').modal('show');
+    // Tentative principale avec window.onload
+    window.onload = hidePreloader;
+
+    // Fallback pour iOS ou en cas d'échec
+    setTimeout(() => {
+      if (preloader && preloader.style.opacity !== '0') {
+        console.warn('Fallback triggered: Preloader not hidden by window.onload');
+        hidePreloader();
       }
-    }
+    }, 5000); // Temps d'attente maximum (5 secondes)
   }
-
 }

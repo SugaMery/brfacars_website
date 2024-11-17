@@ -4,20 +4,6 @@
     var $window = $(window);
     var $body = $('body');
 
-    /* Détecter iOS et macOS */
-    var isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
-
-    /* Effet de préchargement */
-    $window.on('load', function () {
-        var fadeOutDuration = isAppleDevice ? 400 : 600; // 400ms pour Apple, 600ms pour autres
-        $(".preloader").fadeOut(fadeOutDuration, function () {
-            if (isAppleDevice) {
-                console.log("Apple: Préchargement ajusté à 400ms");
-            } else {
-                console.log("Autres appareils: Préchargement standard à 600ms");
-            }
-        });
-    });
 
 	if($('.datepicker').length){
 		$( ".datepicker" ).datepicker();
