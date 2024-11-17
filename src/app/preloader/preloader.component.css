@@ -1,0 +1,4 @@
+::ng-deep .apple-device .preloader {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out; /* Assurez-vous que cela correspond à la durée JS */
+}

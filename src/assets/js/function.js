@@ -7,19 +7,14 @@
     /* Détecter iOS et macOS */
     var isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
 
-    if (isAppleDevice) {
-        console.log("Appareil Apple détecté (iOS ou macOS)");
-        // Désactiver ou ajuster les animations ou manipulations problématiques
-        $body.addClass('apple-device');
-    }
-
     /* Effet de préchargement */
     $window.on('load', function () {
-        $(".preloader").fadeOut(600, function () {
+        var fadeOutDuration = isAppleDevice ? 400 : 600; // 400ms pour Apple, 600ms pour autres
+        $(".preloader").fadeOut(fadeOutDuration, function () {
             if (isAppleDevice) {
-                console.log("Apple: Ajustements spécifiques pour éviter les problèmes");
-                // Ajoutez ici des solutions spécifiques
-                // Ex : éviter des animations conflictuelles ou des scripts non supportés
+                console.log("Apple: Préchargement ajusté à 400ms");
+            } else {
+                console.log("Autres appareils: Préchargement standard à 600ms");
             }
         });
     });
