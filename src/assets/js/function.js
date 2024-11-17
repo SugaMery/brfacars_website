@@ -1,13 +1,28 @@
 (function ($) {
     "use strict";
 	
-	var $window = $(window); 
-	var $body = $('body'); 
+    var $window = $(window);
+    var $body = $('body');
 
-	/* Preloader Effect */
-	$window.on('load', function(){
-		$(".preloader").fadeOut(600);
-	});
+    /* Détecter iOS et macOS */
+    var isAppleDevice = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isAppleDevice) {
+        console.log("Appareil Apple détecté (iOS ou macOS)");
+        // Désactiver ou ajuster les animations ou manipulations problématiques
+        $body.addClass('apple-device');
+    }
+
+    /* Effet de préchargement */
+    $window.on('load', function () {
+        $(".preloader").fadeOut(600, function () {
+            if (isAppleDevice) {
+                console.log("Apple: Ajustements spécifiques pour éviter les problèmes");
+                // Ajoutez ici des solutions spécifiques
+                // Ex : éviter des animations conflictuelles ou des scripts non supportés
+            }
+        });
+    });
 
 	if($('.datepicker').length){
 		$( ".datepicker" ).datepicker();
