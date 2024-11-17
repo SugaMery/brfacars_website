@@ -34,6 +34,6 @@ export class PreloaderComponent {
         console.warn('Fallback triggered: Preloader not hidden by window.onload');
         hidePreloader();
       }
-    }, 5000); // Temps d'attente maximum (5 secondes)
+    }, 2000); // Temps d'attente maximum (5 secondes)
   }
 }

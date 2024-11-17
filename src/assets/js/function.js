@@ -1,8 +1,9 @@
 (function ($) {
     "use strict";
 	
-    var $window = $(window);
-    var $body = $('body');
+	var $window = $(window); 
+	var $body = $('body'); 
+
 
 
 	if($('.datepicker').length){
