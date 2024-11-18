@@ -28,7 +28,7 @@ export class BlogsComponent {
   }
   constructor(private blogService: BlogService, private titleService: Title, private metaService: Meta) { }
   setTitleAndMeta(): void {
-    const title = 'Location de Voiture à Marrakech - BRFA Cars | Blogs';
+    const title = 'Location de Voiture à Marrakech - Blogs';
     const description = 'Découvrez les blogs de BRFA Cars, avec des conseils sur la location de voiture à Marrakech et des offres exclusives.';
 
     // Set the title
