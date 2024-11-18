@@ -27,29 +27,42 @@ export class BlogsComponent {
       .replace(/[^\w-]+/g, ''); // Remove any non-word characters (except hyphens)
   }
   constructor(private blogService: BlogService, private titleService: Title, private metaService: Meta) { }
-  setTitleAndMeta(): void {
-    const title = 'Location de Voiture à Marrakech - Blogs';
-    const description = 'Découvrez les blogs de BRFA Cars, avec des conseils sur la location de voiture à Marrakech et des offres exclusives.';
+  setMetaTags(): void {
+    // Vous pouvez définir un titre général pour la page des blogs, 
+    // ou une logique pour définir des titres spécifiques en fonction du contenu des blogs.
+    const title = 'Blogs - BRFA Cars';
+    const description = 'Lisez les derniers articles sur la location de voiture à Marrakech, les conseils de voyage et les offres spéciales de BRFA Cars.';
+    const keywords = 'blog location de voiture, Marrakech, voyage à Marrakech, conseils de location de voiture, BRFA Cars';
+    const imageUrl = 'https://www.brfacars.com/assets/images/blog-thumbnail.png';
+    const url = 'https://www.brfacars.com/blogs';  // URL de la page des blogs
 
-    // Set the title
+    // Mettre à jour le titre de la page
     this.titleService.setTitle(title);
 
-    // Set standard meta tags
+    // Mettre à jour les balises meta standards
     this.metaService.updateTag({ name: 'description', content: description });
-    this.metaService.updateTag({ name: 'keywords', content: 'blogs, location de voiture, Marrakech, BRFA Cars, voitures, conseils' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
+    this.metaService.updateTag({ name: 'keywords', content: keywords });
+    this.metaService.updateTag({ name: 'author', content: 'BRFA Cars' });
 
-    // Set Open Graph meta tags
+    // Mettre à jour les balises Open Graph pour les réseaux sociaux
     this.metaService.updateTag({ property: 'og:title', content: title });
     this.metaService.updateTag({ property: 'og:description', content: description });
-    this.metaService.updateTag({ property: 'og:image', content: 'https://brfacars.com/assets/images/logo.png' });  // Example image URL
-    this.metaService.updateTag({ property: 'og:url', content: 'https://brfacars.com/blogs/' });
+    this.metaService.updateTag({ property: 'og:image', content: imageUrl });
+    this.metaService.updateTag({ property: 'og:url', content: url });
     this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'BRFA Cars' });
+
+    // Mettre à jour les balises Twitter Card
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@BRF_Cars' });
+    this.metaService.updateTag({ name: 'twitter:title', content: title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:image', content: imageUrl });
   }
   ngOnInit(): void {
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
     this.loadScripts();  // Load all required scripts
-   this.setTitleAndMeta();
+   this.setMetaTags();
   }
   loadScripts(): void {
     const scripts = [

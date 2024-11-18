@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Blog, BlogService } from '../blog.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 declare var $: any;
 declare var Swiper: any;
@@ -34,9 +35,40 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.loadScripts();  // Load all required scripts
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
+    this.setMetaTags(); // Set the meta tags when the component loads
 
   }
 
+  setMetaTags(): void {
+    const title = 'Location de Voiture à Marrakech - BRFA Cars';
+    const description = 'Découvrez les meilleures options de location de voiture à Marrakech avec BRF Cars. Louez des véhicules à des prix abordables pour explorer la ville et ses environs.';
+    const keywords = 'location de voiture, Marrakech, location voiture Marrakech, BRF Cars, voitures en location, voyage Marrakech, location voiture Maroc';
+    const imageUrl = 'https://www.brfacars.com/assets/images/post1.png';
+    const url = 'https://www.brfacars.com/location-voiture-marrakech';
+
+    // Set the title
+    this.titleService.setTitle(title);
+
+    // Set standard meta tags
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ name: 'keywords', content: keywords });
+    this.metaService.updateTag({ name: 'author', content: 'BRFA Cars' });
+
+    // Set Open Graph meta tags for social media sharing
+    this.metaService.updateTag({ property: 'og:title', content: title });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ property: 'og:image', content: imageUrl });
+    this.metaService.updateTag({ property: 'og:url', content: url });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:site_name', content: 'BRF Cars' });
+
+    // Set Twitter card meta tags
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:site', content: '@BRF_Cars' });
+    this.metaService.updateTag({ name: 'twitter:title', content: title });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    this.metaService.updateTag({ name: 'twitter:image', content: imageUrl });
+  }
   formatTitle(title: string): string {
     return title
       .toLowerCase() // Convert to lowercase
@@ -49,7 +81,7 @@ export class HomeComponent implements OnInit {
   selectedLieu: string = '';
   selectedLieuRetour: string = '';
   blogs: Blog[] = [];
-  constructor(private router: Router,private blogService: BlogService) {}
+  constructor(private router: Router,private blogService: BlogService,private titleService: Title, private metaService: Meta) {}
   voitures: Voiture[] = 
   [
     { image: '../../assets/images/voitures/citroen_berlingo.png', title: 'Citroën Berlingo', model: 'Essence Manuel', fuel: 'Diesel', year: 2023, transmission: 'Manuel', price: 300, category: 'Citadine' },
