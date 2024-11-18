@@ -37,7 +37,7 @@ export class BlogsComponent {
     const url = 'https://www.brfacars.com/blogs';  // URL de la page des blogs
 
     // Mettre à jour le titre de la page
-    this.titleService.setTitle(title);
+    //this.titleService.setTitle(title);
 
     // Mettre à jour les balises meta standards
     this.metaService.updateTag({ name: 'description', content: description });

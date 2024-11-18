@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     const url = 'https://www.brfacars.com/location-voiture-marrakech';
 
     // Set the title
-    this.titleService.setTitle(title);
+    //this.titleService.setTitle(title);
 
     // Set standard meta tags
     this.metaService.updateTag({ name: 'description', content: description });
