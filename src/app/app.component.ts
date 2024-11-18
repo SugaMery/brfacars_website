@@ -8,7 +8,7 @@ import { PreloaderComponent } from './preloader/preloader.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent,FooterComponent,PreloaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -5,6 +5,7 @@ import { PreloaderComponent } from "../preloader/preloader.component";
 import { Blog, BlogService } from '../blog.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 declare var $: any;
 declare var Swiper: any;
 declare var WOW: any;
@@ -25,12 +26,21 @@ export class BlogsComponent {
       .replace(/\s+/g, '-') // Replace spaces with hyphens
       .replace(/[^\w-]+/g, ''); // Remove any non-word characters (except hyphens)
   }
-  constructor(private blogService: BlogService) { }  // Inject BlogService
+  constructor(private blogService: BlogService, private titleService: Title, private metaService: Meta) { }
+  setTitleAndMeta(): void {
+    // Set a unique title for the blogs page
+    const title = 'Location de Voiture à Marrakech - BRFA Cars | Blogs';
+    this.titleService.setTitle(title);
 
+    // Set meta tags for the blogs page
+    this.metaService.updateTag({ name: 'description', content: 'Découvrez les blogs de BRFA Cars, avec des conseils sur la location de voiture à Marrakech et des offres exclusives.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'blogs, location de voiture, Marrakech, BRFA Cars, voitures, conseils' });
+    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });  // Ensure this page is indexed by search engines
+  }
   ngOnInit(): void {
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
     this.loadScripts();  // Load all required scripts
-
+   this.setTitleAndMeta();
   }
   loadScripts(): void {
     const scripts = [
