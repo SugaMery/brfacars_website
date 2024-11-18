@@ -6,18 +6,42 @@ import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser'; // Import Title and Meta services
+
 declare var $: any;
 declare var Swiper: any;
 declare var WOW: any;
+
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, PreloaderComponent,CommonModule, FormsModule],
+  imports: [HeaderComponent, FooterComponent, PreloaderComponent, CommonModule, FormsModule],
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css'
 })
 export class BlogDetailComponent {
   blog: any; // Object to hold blog data
+
+  constructor(
+    private route: ActivatedRoute,
+    private blogService: BlogService,
+    private titleService: Title, // Inject Title service
+    private metaService: Meta   // Inject Meta service
+  ) { }
+
+  ngOnInit(): void {
+    this.loadScripts();  // Load all required scripts
+
+    // Subscribe to route parameters and fetch blog details based on the blogId
+    this.route.queryParams.subscribe(params => {
+      const blogId = params['id'];
+      console.log("iddd", blogId);
+      if (blogId) {
+        this.fetchBlogDetail(blogId);
+      }
+    });
+  }
+
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
@@ -62,15 +86,12 @@ export class BlogDetailComponent {
     });
   }
 
-  // Initialize plugins after all scripts are loaded
   initializePlugins(): void {
-    // Initialize SlickNav
     if (typeof $.fn.slicknav === 'function') {
       $('#menu').slicknav();  // Initialize slicknav on a menu with id "menu"
       console.log('SlickNav initialized');
     }
 
-    // Initialize Swiper
     if (typeof Swiper === 'function') {
       new Swiper('.swiper-container', {
         autoplay: true,
@@ -80,41 +101,32 @@ export class BlogDetailComponent {
       console.log('Swiper initialized');
     }
 
-    // Initialize WOW.js (for animations)
     if (typeof WOW === 'function') {
       new WOW().init();
       console.log('WOW.js initialized');
     }
-
-    // Other plugin initializations if needed
-    // For example, Magic Cursor, Waypoints, etc.
   }
-
-  constructor(
-    private route: ActivatedRoute,
-    private blogService: BlogService
-  ) { }
-
-  ngOnInit(): void {
-    this.loadScripts();  // Load all required scripts
-
-    this.route.queryParams.subscribe(params => {
-      const blogId = params['id'];
-      console.log("iddd",blogId)
-      if (blogId) {
-        this.fetchBlogDetail(blogId);
-
-      }
-    });
-  }
-
-
 
   fetchBlogDetail(blogId: string): void {
     this.blogService.getBlogById(Number(blogId)).subscribe(data => {
-      console.log("dattaaaaa",data)
-
+      console.log("dattaaaaa", data);
       this.blog = data;
+
+      // Update the page title and meta description dynamically
+      this.updateMetaTags();
     });
+  }
+
+  // Update the title and meta description for SEO
+  updateMetaTags(): void {
+    if (this.blog) {
+      // Update the page title
+      this.titleService.setTitle(this.blog.title);
+
+      // Update meta description
+      this.metaService.updateTag({ name: 'description', content: this.blog.metaDescription });
+      
+      // Optionally, you can update other meta tags, such as keywords or social media meta tags.
+    }
   }
 }

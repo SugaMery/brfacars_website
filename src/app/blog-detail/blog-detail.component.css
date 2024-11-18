@@ -5,3 +5,10 @@
     padding: 30px 30px 30px 100px;
     margin-bottom: 30px;
 }
+
+
+::ng-deep .post-entry p strong {
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 600;
+}
