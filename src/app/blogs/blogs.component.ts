@@ -28,14 +28,23 @@ export class BlogsComponent {
   }
   constructor(private blogService: BlogService, private titleService: Title, private metaService: Meta) { }
   setTitleAndMeta(): void {
-    // Set a unique title for the blogs page
     const title = 'Location de Voiture à Marrakech - BRFA Cars | Blogs';
+    const description = 'Découvrez les blogs de BRFA Cars, avec des conseils sur la location de voiture à Marrakech et des offres exclusives.';
+
+    // Set the title
     this.titleService.setTitle(title);
 
-    // Set meta tags for the blogs page
-    this.metaService.updateTag({ name: 'description', content: 'Découvrez les blogs de BRFA Cars, avec des conseils sur la location de voiture à Marrakech et des offres exclusives.' });
+    // Set standard meta tags
+    this.metaService.updateTag({ name: 'description', content: description });
     this.metaService.updateTag({ name: 'keywords', content: 'blogs, location de voiture, Marrakech, BRFA Cars, voitures, conseils' });
-    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });  // Ensure this page is indexed by search engines
+    this.metaService.updateTag({ name: 'robots', content: 'index, follow' });
+
+    // Set Open Graph meta tags
+    this.metaService.updateTag({ property: 'og:title', content: title });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://brfacars.com/assets/images/logo.png' });  // Example image URL
+    this.metaService.updateTag({ property: 'og:url', content: 'https://brfacars.com/blogs/' });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
   }
   ngOnInit(): void {
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
