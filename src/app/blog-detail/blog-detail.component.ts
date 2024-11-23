@@ -40,7 +40,7 @@ export class BlogDetailComponent {
         this.blogService.getBlogById(Number(blogId)).subscribe(data => {
         });
         this.fetchBlogDetail(blogId);
-        this.setMetaTags(this.blog?.metaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.keywords)
+        this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
       }
     });
 
