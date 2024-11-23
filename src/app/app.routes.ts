@@ -10,6 +10,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { LocationvoitureaeroportMarrakechComponent } from './locationvoitureaeroport-marrakech/locationvoitureaeroport-marrakech.component';
 
 export const  routes: Routes = [
     { path: '', component: HomeComponent ,data: { title: 'Home' }},
@@ -21,6 +22,7 @@ export const  routes: Routes = [
     {path: 'blogs' , component: BlogsComponent},
     { path: 'blog-detail', component: BlogDetailComponent },
     { path: 'blog-detail/:id/:titre', component: BlogDetailComponent },
+    { path: 'location-voiture-aeroport-marrakech-guide-complet', component: LocationvoitureaeroportMarrakechComponent },
 
     { path: 'contactez-nous', component: ContactUsComponent },
   // Wildcard route for handling undefined routes
