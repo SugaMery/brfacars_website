@@ -190,7 +190,7 @@ export class BlogService {
   id: 5,
   title: "Location voiture aéroport Marrakech : Guide Complet",
   metaDescription: "Découvrez nos offres de location de voiture à Marrakech dès 7€/jour. Réservez en ligne et profitez d’un service rapide et fiable.",
-  h1: "Location de voitures à Marrakech : Tarifs imbattables",
+  h1: "Location voiture aéroport Marrakech : Louez avec BrfaCars",
   description: "Tout ce que vous devez savoir pour louer une voiture à Marrakech. Conseils pratiques, meilleurs prix, et astuces pour voyager sereinement.",
   imageUrl: "../../assets/images/post7.webp",
   media: "https://brfacars.com/assets/images/post7.webp",

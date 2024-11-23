@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { PreloaderComponent } from "../preloader/preloader.component";
@@ -19,7 +19,7 @@ declare var WOW: any;
   templateUrl: './blog-detail.component.html',
   styleUrl: './blog-detail.component.css'
 })
-export class BlogDetailComponent {
+export class BlogDetailComponent implements OnInit {
   blog: any; // Object to hold blog data
 
   constructor(
@@ -27,7 +27,9 @@ export class BlogDetailComponent {
     private blogService: BlogService,
     private title: Title, // Inject Title service
     private meta: Meta   // Inject Meta service
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit(): void {
 
@@ -37,8 +39,6 @@ export class BlogDetailComponent {
       const titre = params['titre'];
 
       if (blogId) {
-        this.blogService.getBlogById(Number(blogId)).subscribe(data => {
-        });
         this.fetchBlogDetail(blogId);
         this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
       }
