@@ -537,10 +537,10 @@
             <div class="col-lg-12">
                 <div class="luxury-collection-box">
                     <!-- Luxury Collection Item Start -->
-                    <div class="luxury-collection-item wow fadeInUp" *ngFor="let blog of blogs">
+                    <div class="luxury-collection-item wow fadeInUp" *ngFor="let blog of blogs.splice(0,4)">
                         <!-- Luxury Collection Image Start -->
                         <div class="luxury-collection-image" data-cursor-text="View">
-                            <a [href]="'/blog-detail?id=' + blog.id+'&titre='+formatTitle(blog.title)">
+                            <a [href]="'/blog-detail/' + blog.id + '/' + formatTitle(blog.title)" >
                                 <figure>
                                     <img [src]="blog.imageUrl" [alt]="blog.title">
 
@@ -557,7 +557,7 @@
                         
                         <!-- Luxury Collection Btn Start -->
                         <div class="luxury-collection-btn">
-                            <a  [href]="'/blog-detail?id=' + blog.id+'&titre='+formatTitle(blog.title)" class="section-icon-btn"><img src="../../assets/images/arrow-white.svg" alt=""></a>
+                            <a  [href]="'/blog-detail/' + blog.id + '/' + formatTitle(blog.title)"  class="section-icon-btn"><img src="../../assets/images/arrow-white.svg" alt=""></a>
                         </div>
                         <!-- Luxury Collection Btn End -->
                     </div>

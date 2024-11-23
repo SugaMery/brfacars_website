@@ -4,6 +4,7 @@ import { PreloaderComponent } from "../preloader/preloader.component";
 import { HeaderComponent } from "../header/header.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Meta, Title } from '@angular/platform-browser';
 declare var $: any;
 declare var Swiper: any;
 declare var WOW: any;
@@ -117,8 +118,79 @@ Message: ${message}`;
     // Other plugin initializations if needed
     // For example, Magic Cursor, Waypoints, etc.
   }
+  constructor(
+    private meta: Meta,
+    private title: Title,
 
+  ){}
+  public setTitle(newTitle: string): void {
+    this.title.setTitle(newTitle);
+  }
+
+  public setContactUsMetaTags(): void {
+
+    this.setTitle('Contactez BRFA Cars pour la Location de Voiture à Marrakech');
+
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        "Contactez BRFA Cars pour toutes vos demandes de location de voiture à Marrakech. Notre équipe est disponible pour répondre à vos questions et vous fournir des informations sur nos services.",
+    });
+    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'contact, location de voiture, Marrakech, BRFA Cars, informations, service client, location voiture Maroc, assistance, questions',
+    });
+    this.meta.updateTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    });
+    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
+  
+    // Open Graph Meta Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Contactez BRFA Cars pour la Location de Voiture à Marrakech',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        "Besoin d'aide ou d'informations ? Contactez BRFA Cars pour toutes vos questions concernant la location de voiture à Marrakech. Notre équipe est à votre disposition.",
+    });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.BRFAacars.com/contact',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.BRFAacars.com/assets/images/page-header-bg.jpg',
+    });
+  
+    // Twitter Card Meta Tags
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: 'Contactez BRFA Cars pour la Location de Voiture à Marrakech',
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content:
+        "Contactez-nous pour obtenir des informations ou poser vos questions sur nos services de location de voiture à Marrakech. BRFA Cars vous accompagne dans vos déplacements.",
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: 'https://www.BRFAacars.com/assets/images/page-header-bg.jpg',
+    });
+  
+    this.meta.updateTag({
+      title: 'Contactez BRFA Cars pour la Location de Voiture à Marrakech',
+    });
+  }
+
+  
   ngOnInit(): void {
+    this.setContactUsMetaTags();
     this.loadScripts();  // Load all required scripts
   }
 }

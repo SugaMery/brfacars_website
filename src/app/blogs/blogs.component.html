@@ -1,3 +1,4 @@
+
 <app-header></app-header>
 
     <!-- Page Header Start -->
@@ -31,7 +32,7 @@
             <div class="post-item wow fadeInUp">
               <div class="post-featured-image" data-cursor-text="View">
                 <figure>
-                  <a [href]="'/blog-detail?id=' + blog.id + '&titre=' + formatTitle(blog.title)" class="image-anime">
+                  <a [href]="'/blog-detail/' + blog.id + '/' + formatTitle(blog.title)"  class="image-anime">
                     <img [src]="blog.imageUrl" [alt]="blog.title">
                   </a>
                 </figure>
@@ -46,7 +47,7 @@
                   <h2><a [href]="blog.readMoreLink">{{ blog.title }}</a></h2>
                 </div>
                 <div class="post-item-btn">
-                  <a [href]="'/blog-detail?id=' + blog.id + '&titre=' + formatTitle(blog.title)" class="read-story-btn">Lire la suite</a>
+                  <a [href]="'/blog-detail/' + blog.id + '/' + formatTitle(blog.title)" class="read-story-btn">Lire la suite</a>
                 </div>
               </div>
             </div>

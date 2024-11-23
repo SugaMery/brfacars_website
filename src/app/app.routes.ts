@@ -12,14 +12,16 @@ import { NgModule } from '@angular/core';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 export const  routes: Routes = [
-    { path: '', component: HomeComponent,  title: "Location de Voiture à Marrakech - BRFA Cars" },
+    { path: '', component: HomeComponent ,data: { title: 'Home' }},
     { path: 'location-voiture-marrakech', component: HomeComponent },
-
+    { path: 'contact', component: ReservationComponent, data: { title: 'Contact Us' } },
     {path: 'voitures' , component: CarsListComponent},
     {path: 'apropos-de-nous' , component: AboutUsComponent},
     {path: 'service' , component: ServicesComponent},
-    {path: 'blogs' , component: BlogsComponent,  title: "Blogs - BRFA Cars"},
+    {path: 'blogs' , component: BlogsComponent},
     { path: 'blog-detail', component: BlogDetailComponent },
+    { path: 'blog-detail/:id/:titre', component: BlogDetailComponent },
+
     { path: 'contactez-nous', component: ContactUsComponent },
   // Wildcard route for handling undefined routes
   { path: '**', component: NotFoundComponent },

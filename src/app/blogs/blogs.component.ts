@@ -12,6 +12,7 @@ declare var WOW: any;
 @Component({
   selector: 'app-blogs',
   standalone: true,
+  providers:[Meta,Title],
   imports: [HeaderComponent, FooterComponent, PreloaderComponent,CommonModule, FormsModule],
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css'
@@ -26,43 +27,89 @@ export class BlogsComponent {
       .replace(/\s+/g, '-') // Replace spaces with hyphens
       .replace(/[^\w-]+/g, ''); // Remove any non-word characters (except hyphens)
   }
-  constructor(private blogService: BlogService, private titleService: Title, private metaService: Meta) { }
-  setMetaTags(): void {
-    // Vous pouvez définir un titre général pour la page des blogs, 
-    // ou une logique pour définir des titres spécifiques en fonction du contenu des blogs.
-    const title = 'Blogs - BRFA Cars';
-    const description = 'Lisez les derniers articles sur la location de voiture à Marrakech, les conseils de voyage et les offres spéciales de BRFA Cars.';
-    const keywords = 'blog location de voiture, Marrakech, voyage à Marrakech, conseils de location de voiture, BRFA Cars';
-    const imageUrl = 'https://www.brfacars.com/assets/images/blog-thumbnail.png';
-    const url = 'https://www.brfacars.com/blogs';  // URL de la page des blogs
+  constructor(
+    private meta: Meta,
+    private title: Title,
+    private blogService: BlogService
 
-    // Mettre à jour le titre de la page
-    //this.titleService.setTitle(title);
-
-    // Mettre à jour les balises meta standards
-    this.metaService.updateTag({ name: 'description', content: description });
-    this.metaService.updateTag({ name: 'keywords', content: keywords });
-    this.metaService.updateTag({ name: 'author', content: 'BRFA Cars' });
-
-    // Mettre à jour les balises Open Graph pour les réseaux sociaux
-    this.metaService.updateTag({ property: 'og:title', content: title });
-    this.metaService.updateTag({ property: 'og:description', content: description });
-    this.metaService.updateTag({ property: 'og:image', content: imageUrl });
-    this.metaService.updateTag({ property: 'og:url', content: url });
-    this.metaService.updateTag({ property: 'og:type', content: 'website' });
-    this.metaService.updateTag({ property: 'og:site_name', content: 'BRFA Cars' });
-
-    // Mettre à jour les balises Twitter Card
-    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
-    this.metaService.updateTag({ name: 'twitter:site', content: '@BRF_Cars' });
-    this.metaService.updateTag({ name: 'twitter:title', content: title });
-    this.metaService.updateTag({ name: 'twitter:description', content: description });
-    this.metaService.updateTag({ name: 'twitter:image', content: imageUrl });
+  ) {
+    // Set page meta tags and title for SEO
+    //this.setMetaTags();
+    //this.setTitle('Qui nous sommetts - Onemakan - Annonces au Maroc');
   }
+
+  // Public method to set the page title
+  public setTitle(newTitle: string): void {
+    this.title.setTitle(newTitle);
+  }
+
+  // Public method to set all meta tags
+  public setBlogMetaTags(): void {
+    this.setTitle('Blog BRFA Cars - Conseils Voyage et Location de Voitures à Marrakech');
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        "Explorez notre blog BRFA Cars pour des conseils de voyage, des informations sur la location de voitures à Marrakech, et des guides pour découvrir le Maroc.",
+    });
+    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'blog, BRFA Cars, conseils voyage, location voiture Marrakech, découverte Maroc, articles voyage, astuces voiture',
+    });
+    this.meta.updateTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    });
+    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
+  
+    // Open Graph Meta Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Blog BRFA Cars - Conseils Voyage et Location de Voitures à Marrakech',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        "Découvrez des articles inspirants sur les voyages à Marrakech et au Maroc, avec des astuces pour une location de voiture réussie et des expériences inoubliables.",
+    });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://brfacars.com/blogs',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://brfacars.com/assets/images/post7.webp',
+    });
+  
+    // Twitter Card Meta Tags
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: 'Blog BRFA Cars - Conseils Voyage et Location de Voitures à Marrakech',
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content:
+        "Explorez le blog BRFA Cars pour des articles sur les voyages et la location de voitures à Marrakech. Trouvez des idées et des conseils utiles pour votre prochain voyage.",
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: 'https://brfacars.com/assets/images/post7.webp',
+    });
+  
+    this.meta.updateTag({
+      title: 'Blog BRFA Cars - Articles de Voyage et Location de Voiture à Marrakech',
+    });
+  }
+  
+
   ngOnInit(): void {
+   // this.setTitle('Qui nous sommetts - Onemakan - Annonces au Maroc');
+this.setBlogMetaTags()
     this.loadBlogs();  // Call the loadBlogs method to fetch blog data
     this.loadScripts();  // Load all required scripts
-   this.setMetaTags();
+   //this.setMetaTags();
   }
   loadScripts(): void {
     const scripts = [

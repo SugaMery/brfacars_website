@@ -25,23 +25,91 @@ export class BlogDetailComponent {
   constructor(
     private route: ActivatedRoute,
     private blogService: BlogService,
-    private titleService: Title, // Inject Title service
-    private metaService: Meta   // Inject Meta service
+    private title: Title, // Inject Title service
+    private meta: Meta   // Inject Meta service
   ) { }
 
   ngOnInit(): void {
-    this.loadScripts();  // Load all required scripts
 
-    // Subscribe to route parameters and fetch blog details based on the blogId
-    this.route.queryParams.subscribe(params => {
+
+    this.route.params.subscribe(params => {
       const blogId = params['id'];
-      console.log("iddd", blogId);
+      const titre = params['titre'];
+
       if (blogId) {
+        this.blogService.getBlogById(Number(blogId)).subscribe(data => {
+        });
         this.fetchBlogDetail(blogId);
+        this.setMetaTags(this.blog?.metaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.keywords)
       }
     });
-  }
 
+    this.loadScripts();  // Load all required scripts
+
+  }
+  public setTitle(newTitle: string): void {
+    this.title.setTitle(newTitle);
+  }
+  public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
+    this.setTitle(titleFormated +' - Location de Voiture à Marrakech');
+
+    this.meta.updateTag({
+      name: 'description',
+      content:
+      content,
+    });
+    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+      keywords+', location de voiture, Marrakech, voitures de location, entreprise Marrakech',
+    });
+    this.meta.updateTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    });
+    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: titleFormated+ '- Location de Voiture à Marrakech',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+       content
+    });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://brfacars.com/blog-detail/'+blogId+'/'+title,
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: media,
+    });
+  
+    // Twitter Card Tags
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: titleFormated+ '- Location de Voiture à Marrakech',
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content:
+      content
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: media
+    });
+  
+    this.meta.updateTag({
+      title: titleFormated+ '- Location de Voiture à Marrakech',
+    });
+  }
+  
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
@@ -113,20 +181,8 @@ export class BlogDetailComponent {
       this.blog = data;
 
       // Update the page title and meta description dynamically
-      this.updateMetaTags();
     });
   }
 
-  // Update the title and meta description for SEO
-  updateMetaTags(): void {
-    if (this.blog) {
-      // Update the page title
-      this.titleService.setTitle(this.blog.title);
 
-      // Update meta description
-      this.metaService.updateTag({ name: 'description', content: this.blog.metaDescription });
-      
-      // Optionally, you can update other meta tags, such as keywords or social media meta tags.
-    }
-  }
 }

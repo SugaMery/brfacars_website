@@ -26,6 +26,7 @@ interface Voiture {
 @Component({
   selector: 'app-home',
   standalone: true,
+  providers: [Title],
   imports: [HeaderComponent, FooterComponent, PreloaderComponent, CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
     const url = 'https://www.brfacars.com/location-voiture-marrakech';
 
     // Set the title
-    //this.titleService.setTitle(title);
+    this.titleService.setTitle(title);
 
     // Set standard meta tags
     this.metaService.updateTag({ name: 'description', content: description });

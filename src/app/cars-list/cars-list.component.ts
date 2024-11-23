@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
 
 declare var $: any;
 declare var Swiper: any;
@@ -40,6 +41,71 @@ export class CarsListComponent {
       `Prix : ${car.price} MAD\n` +
       `Catégorie : ${car.category}`
     );
+  }
+
+    // Public method to set the page title
+    public setTitle(newTitle: string): void {
+      this.title.setTitle(newTitle);
+    }
+
+  public setCarsListMetaTags(): void {
+    this.setTitle('Liste des Voitures à Louer à Marrakech - BRFA Cars');
+
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        "Découvrez notre large sélection de voitures à louer à Marrakech. Des véhicules modernes et bien entretenus pour tous vos besoins de transport, à des prix abordables.",
+    });
+    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'location de voiture, voitures à louer, Marrakech, location voiture Marrakech, location voiture Maroc, véhicules à louer, BRFA Cars, voitures économiques, voitures de luxe',
+    });
+    this.meta.updateTag({
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
+    });
+    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
+  
+    // Open Graph Meta Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Liste des Voitures à Louer à Marrakech - BRFA Cars',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content:
+        "Explorez nos options de location de voitures à Marrakech avec des véhicules adaptés à tous vos besoins. Louez une voiture facilement avec BRFA Cars.",
+    });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://brfacars.com/voitures',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://brfacars.com/assets/images/post7.webp',
+    });
+  
+    // Twitter Card Meta Tags
+    this.meta.updateTag({
+      name: 'twitter:title',
+      content: 'Liste des Voitures à Louer à Marrakech - BRFA Cars',
+    });
+    this.meta.updateTag({
+      name: 'twitter:description',
+      content:
+        "Découvrez notre flotte de voitures à louer à Marrakech. Des véhicules modernes et abordables pour vos déplacements à travers la ville et au-delà.",
+    });
+    this.meta.updateTag({
+      name: 'twitter:image',
+      content: 'https://brfacars.com/assets/images/post7.webp',
+    });
+  
+    this.meta.updateTag({
+      title: 'Liste des Voitures à Louer à Marrakech - BRFA Cars',
+    });
   }
   
   voitures: Voiture[] = 
@@ -212,9 +278,11 @@ initializePlugins(): void {
       this.currentPage--;
     }
   }
-  constructor(private route: ActivatedRoute) {}
+  constructor(    private meta: Meta,
+    private title: Title,private route: ActivatedRoute,) {}
 
   ngOnInit() {
+    this.setCarsListMetaTags();
     this.route.queryParams.subscribe(params => {
       const category = params['category'];
       if (category) {
