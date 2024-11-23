@@ -208,6 +208,7 @@ export class BlogService {
 <p>Bienvenue chez BrfaCars, votre **agence de location** idéale pour la **location de voiture à l’aéroport de Marrakech Menara**. Explorez la **ville rouge** et ses environs en toute liberté avec nos véhicules modernes et bien entretenus. Que vous soyez en voyage d’affaires ou en vacances, nous avons la solution parfaite pour répondre à vos besoins.</p>
 
 <h2>Pourquoi choisir BrfaCars pour votre location de voiture à Marrakech ?</h2>
+<h2>Comment agence de location à l’aéroport de Marrakech ?</h2>
 
 <p>En tant qu’**agence de location** reconnue à Marrakech, BrfaCars vous offre une expérience unique, grâce à :</p>
 <ul>
