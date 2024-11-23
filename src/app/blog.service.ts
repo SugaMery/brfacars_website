@@ -196,7 +196,7 @@ export class BlogService {
   media: "https://brfacars.com/assets/images/post7.webp",
   publishDate: "Novembre 2024",
   author: "BrfaCars",
-  quote: "Louer une voiture à Marrakech, c’est la liberté de découvrir le Maroc à votre rythme.",
+  quote: "Agence de location à Marrakech, c’est la liberté de découvrir le Maroc à votre rythme.",
   tags: ["location voiture", "Marrakech", "tourisme", "conseils voyage"],
   readMoreLink: "/location-voiture-marrakech-guide",
   city: "Marrakech",
