@@ -39,10 +39,8 @@ export class LocationvoitureaeroportMarrakechComponent {
       const blogId = params['id'];
       const titre = params['titre'];
 
-      if (blogId) {
         this.fetchBlogDetail('5');
         this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
-      }
     });
 
     this.loadScripts();  // Load all required scripts
@@ -52,7 +50,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     this.title.setTitle(newTitle);
   }
   public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
-    this.setTitle('location voiture aéroport marrakech - Location de Voiture à Marrakech');
+    this.setTitle('Location voiture aéroport marrakech - Location de Voiture à Marrakech');
 
     this.meta.updateTag({
       name: 'description',
@@ -74,7 +72,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     // Open Graph Tags
     this.meta.updateTag({
       property: 'og:title',
-      content: 'location voiture aéroport marrakech - Location de Voiture à Marrakech',
+      content: 'Location voiture aéroport marrakech - Location de Voiture à Marrakech',
     });
     this.meta.updateTag({
       property: 'og:description',
@@ -94,7 +92,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     // Twitter Card Tags
     this.meta.updateTag({
       name: 'twitter:title',
-      content: 'location voiture aéroport marrakech - Location de Voiture à Marrakech',
+      content: 'Location voiture aéroport marrakech - Location de Voiture à Marrakech',
     });
     this.meta.updateTag({
       name: 'twitter:description',
@@ -107,7 +105,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     });
   
     this.meta.updateTag({
-      title: 'location voiture aéroport marrakech - Location de Voiture à Marrakech',
+      title: 'Location voiture aéroport marrakech - Location de Voiture à Marrakech',
     });
   }
   
