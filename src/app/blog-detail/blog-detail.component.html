@@ -36,6 +36,8 @@
             <!-- Post Entry Start -->
             <div class="post-entry">
                 <p class="wow fadeInUp" [innerHTML]="blog.content"></p>
+                <p>{{ blog?.seoKeywords }}</p>
+
                 <blockquote class="wow fadeInUp" data-wow-delay="0.4s">
                 <p>{{ blog.quote }}</p>
               </blockquote>
@@ -46,6 +48,7 @@
   
             <!-- Post Tag Links Start -->
             <div class="post-tag-links">
+
               <div class="row align-items-center">
                 <div class="col-lg-8">
                   <div class="post-tags wow fadeInUp" data-wow-delay="0.5s">
