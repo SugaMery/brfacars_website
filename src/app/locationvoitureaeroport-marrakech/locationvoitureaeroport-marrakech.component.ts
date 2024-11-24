@@ -134,7 +134,7 @@ export class LocationvoitureaeroportMarrakechComponent {
         "addressCountry": "MA"
       },
       "offers": {
-        "@type": "Offer",
+        "@type": "RentalOffer",
         "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
         "priceCurrency": "MAD",
         "price": "200",
@@ -142,6 +142,11 @@ export class LocationvoitureaeroportMarrakechComponent {
         "eligibleRegion": {
           "@type": "Place",
           "name": "Marrakech"
+        },
+        "vehicle": {
+          "@type": "Car",
+          "model": "Toyota Yaris",
+          "vehicleType": "Sedan"
         }
       }
     };
@@ -154,6 +159,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     // Append the script to the <head> element of the document
     this.renderer.appendChild(this.document.head, script);
   }
+  
   
   loadScripts(): void {
     const scripts = [
