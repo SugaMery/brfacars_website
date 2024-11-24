@@ -133,32 +133,33 @@ export class LocationvoitureaeroportMarrakechComponent {
         "postalCode": "40000",
         "addressCountry": "MA"
       },
+      "vehicle": {
+        "@type": "Car",
+        "brand": "Toyota",  // Remplacer par la marque du véhicule
+        "model": "Yaris",   // Remplacer par le modèle du véhicule
+        "vehicleModelDate": "2024",  // Remplacer par l'année du modèle
+        "itemCondition": "New",  // Définir l'état du véhicule, "New" ou "Used"
+        "vehicleIdentificationNumber": "ABC123XYZ",  // Optionnel, à remplir si disponible
+        "vehicleType": "Sedan"  // Définir le type de véhicule, ex: "Sedan", "SUV"
+      },
       "offers": {
-        "@type": "RentalOffer",
+        "@type": "Offer",
         "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
         "priceCurrency": "MAD",
         "price": "200",
-        "priceValidUntil": "2024-12-31",
-        "eligibleRegion": {
-          "@type": "Place",
-          "name": "Marrakech"
-        },
-        "vehicle": {
-          "@type": "Car",
-          "model": "Toyota Yaris",
-          "vehicleType": "Sedan"
-        }
+        "priceValidUntil": "2024-12-31"
       }
     };
   
-    // Create a script tag for the JSON-LD data
+    // Créer une balise <script> pour les données JSON-LD
     const script = this.renderer.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(jsonLd);
   
-    // Append the script to the <head> element of the document
+    // Ajouter le script dans l'élément <head> du document
     this.renderer.appendChild(this.document.head, script);
   }
+  
   
   
   loadScripts(): void {
