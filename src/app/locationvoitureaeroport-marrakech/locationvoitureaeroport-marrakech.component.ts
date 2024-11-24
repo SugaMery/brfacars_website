@@ -112,8 +112,7 @@ export class LocationvoitureaeroportMarrakechComponent {
   }
   
   addJsonLdSchema() {
-    const jsonLd = 
-    {
+    const jsonLd = {
       "@context": "https://schema.org",
       "@type": "AutoRental",
       "@id": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
@@ -145,9 +144,13 @@ export class LocationvoitureaeroportMarrakechComponent {
         "@type": "GeoCoordinates",
         "latitude": 31.601139,
         "longitude": -8.02674
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "56"
       }
-    }
-    ;
+    };
   
     // Créer une balise <script> pour les données JSON-LD
     const script = this.renderer.createElement('script');
@@ -157,6 +160,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     // Ajouter le script dans l'élément <head> du document
     this.renderer.appendChild(this.document.head, script);
   }
+  
   
   
   
