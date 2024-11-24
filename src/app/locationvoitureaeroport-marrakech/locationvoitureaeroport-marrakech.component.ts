@@ -115,56 +115,33 @@ export class LocationvoitureaeroportMarrakechComponent {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "AutoRental",
-      "@id": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
-      "name": "Location de Voiture à l'Aéroport de Marrakech Menara",
+      "name": "Location de voiture à l'aéroport de Marrakech Menara",
+      "image": "https://brfacars.com/assets/images/post7.webp",
       "description": "Louez une voiture à l'aéroport de Marrakech Menara avec BrfaCars. Choisissez parmi une large gamme de véhicules et bénéficiez d'un service de qualité pour vos déplacements à Marrakech.",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
-        "name": "Location de Voiture à l'Aéroport de Marrakech Menara"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Aéroport Marrakech Menara",
-        "addressLocality": "Marrakech",
-        "addressRegion": "Marrakech-Safi",
-        "postalCode": "40000",
-        "addressCountry": "MA"
-      },
-      "brand": {
-        "@type": "Brand",
-        "name": "BRFACars"
-      },
-      "paymentAccepted": ["Cash", "Card"],
-      "telephone": "+212 699 050 501",
-      "image": [
-        "https://brfacars.com/assets/images/post7.webp"
-      ],
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 31.601139,
-        "longitude": -8.02674
-      },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "56"
+        "ratingValue": "4.5",
+        "bestRating": "5",
+        "ratingCount": "150"
+      },
+      "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
+        "priceCurrency": "MAD",
+        "price": "200",
+        "priceValidUntil": "2024-12-31"
       }
     };
-  
-    // Créer une balise <script> pour les données JSON-LD
+
+    // Create a script tag for the JSON-LD data
     const script = this.renderer.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(jsonLd);
-  
-    // Ajouter le script dans l'élément <head> du document
+
+    // Append the script to the <head> element of the document
     this.renderer.appendChild(this.document.head, script);
   }
-  
-  
-  
-  
-  
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
