@@ -116,7 +116,7 @@ export class LocationvoitureaeroportMarrakechComponent {
       "@context": "https://schema.org",
       "@type": "AutoRental",
       "name": "Location de voiture à l'aéroport de Marrakech Menara",
-      "image": "https://votre-site.com/assets/images/post7.webp",
+      "image": "https://brfars.com/assets/images/post7.webp",
       "description": "Louez une voiture à l'aéroport de Marrakech Menara avec BrfaCars. Choisissez parmi une large gamme de véhicules et bénéficiez d'un service de qualité pour vos déplacements à Marrakech.",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -124,10 +124,10 @@ export class LocationvoitureaeroportMarrakechComponent {
         "bestRating": "5",
         "ratingCount": "150"
       },
-      "url": "https://votre-site.com/location-voiture-aeroport-marrakech",
+      "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
       "offers": {
         "@type": "Offer",
-        "url": "https://votre-site.com/location-voiture-aeroport-marrakech",
+        "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
         "priceCurrency": "MAD",
         "price": "200",
         "priceValidUntil": "2024-12-31"
