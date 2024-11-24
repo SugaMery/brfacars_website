@@ -112,49 +112,43 @@ export class LocationvoitureaeroportMarrakechComponent {
   }
   
   addJsonLdSchema() {
-    const jsonLd = {
+    const jsonLd = 
+    {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",  // Type adapté pour une entreprise locale
-      "name": "Location de voiture à l'aéroport de Marrakech Menara",
-      "image": "https://brfars.com/assets/images/post7.webp",
+      "@type": "AutoRental",
+      "@id": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
+      "name": "Location de Voiture à l'Aéroport de Marrakech Menara",
       "description": "Louez une voiture à l'aéroport de Marrakech Menara avec BrfaCars. Choisissez parmi une large gamme de véhicules et bénéficiez d'un service de qualité pour vos déplacements à Marrakech.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "bestRating": "5",
-        "ratingCount": "150"
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
+        "name": "Location de Voiture à l'Aéroport de Marrakech Menara"
       },
-      "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Aéroport de Marrakech Menara",
+        "streetAddress": "Aéroport Marrakech Menara",
         "addressLocality": "Marrakech",
         "addressRegion": "Marrakech-Safi",
         "postalCode": "40000",
         "addressCountry": "MA"
       },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
-        "priceCurrency": "MAD",
-        "price": "200",
-        "priceValidUntil": "2024-12-31",
-        "eligibleRegion": {
-          "@type": "Place",
-          "name": "Marrakech"
-        },
-        "itemOffered": {
-          "@type": "Product",
-          "name": "Location de voiture",
-          "brand": "Toyota",
-          "model": "Yaris",
-          "vehicleModelDate": "2024",
-          "itemCondition": "New",  // Définir l'état du véhicule, "New" ou "Used"
-          "vehicleIdentificationNumber": "ABC123XYZ",  // Optionnel
-          "vehicleType": "Sedan"  // Type de véhicule
-        }
+      "brand": {
+        "@type": "Brand",
+        "name": "BRFACars"
+      },
+      "paymentAccepted": ["Cash", "Card"],
+      "telephone": "+212 699 050 501",
+      "fax": "null",
+      "image": [
+        "https://brfacars.com/assets/images/post7.webp"
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.601139,
+        "longitude": -8.02674
       }
-    };
+    }
+    ;
   
     // Créer une balise <script> pour les données JSON-LD
     const script = this.renderer.createElement('script');
