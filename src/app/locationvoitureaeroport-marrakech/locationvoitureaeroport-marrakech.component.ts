@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -27,7 +27,9 @@ export class LocationvoitureaeroportMarrakechComponent {
     private route: ActivatedRoute,
     private blogService: BlogService,
     private title: Title, // Inject Title service
-    private meta: Meta   // Inject Meta service
+    private meta: Meta,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document   // Inject Meta service
   ) { 
 
   }
@@ -42,7 +44,7 @@ export class LocationvoitureaeroportMarrakechComponent {
         this.fetchBlogDetail('5');
         this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
     });
-
+    this.addJsonLdSchema();
     this.loadScripts();  // Load all required scripts
 
   }
@@ -109,6 +111,37 @@ export class LocationvoitureaeroportMarrakechComponent {
     });
   }
   
+  addJsonLdSchema() {
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "name": "Location de voiture à l'aéroport de Marrakech Menara",
+      "image": "https://votre-site.com/assets/images/post7.webp",
+      "description": "Louez une voiture à l'aéroport de Marrakech Menara avec BrfaCars. Choisissez parmi une large gamme de véhicules et bénéficiez d'un service de qualité pour vos déplacements à Marrakech.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "bestRating": "5",
+        "ratingCount": "150"
+      },
+      "url": "https://votre-site.com/location-voiture-aeroport-marrakech",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://votre-site.com/location-voiture-aeroport-marrakech",
+        "priceCurrency": "MAD",
+        "price": "200",
+        "priceValidUntil": "2024-12-31"
+      }
+    };
+
+    // Create a script tag for the JSON-LD data
+    const script = this.renderer.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+
+    // Append the script to the <head> element of the document
+    this.renderer.appendChild(this.document.head, script);
+  }
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
