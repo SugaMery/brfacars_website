@@ -125,23 +125,36 @@ export class LocationvoitureaeroportMarrakechComponent {
         "ratingCount": "150"
       },
       "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Aéroport de Marrakech Menara",
+        "addressLocality": "Marrakech",
+        "addressRegion": "Marrakech-Safi",
+        "postalCode": "40000",
+        "addressCountry": "MA"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://brfacars.com/location-voiture-aeroport-marrakech-guide-complet",
         "priceCurrency": "MAD",
         "price": "200",
-        "priceValidUntil": "2024-12-31"
+        "priceValidUntil": "2024-12-31",
+        "eligibleRegion": {
+          "@type": "Place",
+          "name": "Marrakech"
+        }
       }
     };
-
+  
     // Create a script tag for the JSON-LD data
     const script = this.renderer.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(jsonLd);
-
+  
     // Append the script to the <head> element of the document
     this.renderer.appendChild(this.document.head, script);
   }
+  
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
