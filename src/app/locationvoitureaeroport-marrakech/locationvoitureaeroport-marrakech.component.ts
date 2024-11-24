@@ -138,7 +138,6 @@ export class LocationvoitureaeroportMarrakechComponent {
       },
       "paymentAccepted": ["Cash", "Card"],
       "telephone": "+212 699 050 501",
-      "fax": "+212 699050501",
       "image": [
         "https://brfacars.com/assets/images/post7.webp"
       ],
