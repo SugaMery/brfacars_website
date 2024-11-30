@@ -52,7 +52,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     this.title.setTitle(newTitle);
   }
   public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
-    this.setTitle('Location voiture aéroport marrakech - Location de Voiture à Marrakech');
+    this.setTitle("Location de Voiture à l'Aéroport de Marrakech - Réservez Maintenant | Agence de Location à Marrakech");
 
     this.meta.updateTag({
       name: 'description',
