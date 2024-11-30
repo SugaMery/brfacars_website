@@ -63,7 +63,8 @@ export class LocationvoitureaeroportMarrakechComponent {
       const titre = params['titre'];
 
         this.fetchBlogDetail('5');
-        this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
+        //this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
+        this.setMetaTags();
     });
     this.addJsonLdSchema();
     this.loadScripts();  // Load all required scripts
@@ -72,7 +73,40 @@ export class LocationvoitureaeroportMarrakechComponent {
   public setTitle(newTitle: string): void {
     this.title.setTitle(newTitle);
   }
-  public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
+  public setMetaTags(): void {
+    const updatedTitle = 'Notre Agence de location à l\'Aéroport de Marrakech-Ménara';
+    const updatedDescription = 'Découvrez notre agence de location de voitures à l’aéroport de Marrakech-Ménara. Profitez de tarifs avantageux et d’un service rapide et fiable.';
+    const updatedKeywords = 'location voiture Marrakech, aéroport Marrakech, location voiture aéroport, agence de location, Marrakech-Ménara';
+    const updatedUrl = 'https://brfacars.com/blog-detail/location-voiture-aeroport-marrakech-guide-complet/' ;
+    const updatedMedia = 'https://brfacars.com/assets/images/post7.webp'; // Assuming `media` contains the image URL
+    
+    // Set the page title
+    this.setTitle(updatedTitle);
+  
+    // Update meta tags
+    this.meta.updateTag({ name: 'description', content: updatedDescription });
+    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
+    this.meta.updateTag({ name: 'keywords', content: updatedKeywords });
+    this.meta.updateTag({ name: 'viewport', content: 'width=device-width, initial-scale=1' });
+    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({ property: 'og:title', content: updatedTitle });
+    this.meta.updateTag({ property: 'og:description', content: updatedDescription });
+    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:url', content: updatedUrl });
+    this.meta.updateTag({ property: 'og:image', content: updatedMedia });
+  
+    // Twitter Card Tags
+    this.meta.updateTag({ name: 'twitter:title', content: updatedTitle });
+    this.meta.updateTag({ name: 'twitter:description', content: updatedDescription });
+    this.meta.updateTag({ name: 'twitter:image', content: updatedMedia });
+  
+    // Fallback title for older browsers
+    this.meta.updateTag({ title: updatedTitle });
+  }
+  
+/*   public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
     this.setTitle('Location voiture aéroport marrakech - Location de Voiture à Marrakech');
 
     this.meta.updateTag({
@@ -131,7 +165,7 @@ export class LocationvoitureaeroportMarrakechComponent {
       title: 'Location voiture aéroport marrakech - Location de Voiture à Marrakech',
     });
   }
-  
+   */
   addJsonLdSchema() {
     const jsonLd = {
       "@context": "https://schema.org",
