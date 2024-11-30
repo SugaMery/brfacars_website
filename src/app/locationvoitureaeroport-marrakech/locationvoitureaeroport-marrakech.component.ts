@@ -13,17 +13,6 @@ declare var $: any;
 declare var Swiper: any;
 declare var WOW: any;
 
-interface Voiture {
-  image: string;
-  title: string;
-  model: string;
-  fuel: string;
-  year: number;
-  transmission: string;
-  price: number;
-  category: string;
-}
-
 @Component({
   selector: 'app-locationvoitureaeroport-marrakech',
   standalone: true,
@@ -44,17 +33,7 @@ export class LocationvoitureaeroportMarrakechComponent {
   ) { 
 
   }
-  generateWhatsAppMessage(car: any): string {
-    return encodeURIComponent(
-      `Je souhaite réserver cette voiture : ${car.title}\n` +
-      `Modèle : ${car.model}\n` +
-      `Carburant : ${car.fuel}\n` +
-      `Année : ${car.year}\n` +
-      `Transmission : ${car.transmission}\n` +
-      `Prix : ${car.price} MAD\n` +
-      `Catégorie : ${car.category}`
-    );
-  }
+
   ngOnInit(): void {
 
 
@@ -63,8 +42,7 @@ export class LocationvoitureaeroportMarrakechComponent {
       const titre = params['titre'];
 
         this.fetchBlogDetail('5');
-        //this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
-        this.setMetaTags();
+        this.setMetaTags(this.blog?.seoMetaDescription,titre,blogId,this.blog.media,this.blog.title,this.blog.seoKeywords)
     });
     this.addJsonLdSchema();
     this.loadScripts();  // Load all required scripts
@@ -73,40 +51,7 @@ export class LocationvoitureaeroportMarrakechComponent {
   public setTitle(newTitle: string): void {
     this.title.setTitle(newTitle);
   }
-  public setMetaTags(): void {
-    const updatedTitle = 'Notre Agence de location à l\'Aéroport de Marrakech-Ménara';
-    const updatedDescription = 'Découvrez notre agence de location de voitures à l’aéroport de Marrakech-Ménara. Profitez de tarifs avantageux et d’un service rapide et fiable.';
-    const updatedKeywords = 'location voiture Marrakech, aéroport Marrakech, location voiture aéroport, agence de location, Marrakech-Ménara';
-    const updatedUrl = 'https://brfacars.com/blog-detail/location-voiture-aeroport-marrakech-guide-complet/' ;
-    const updatedMedia = 'https://brfacars.com/assets/images/post7.webp'; // Assuming `media` contains the image URL
-    
-    // Set the page title
-    this.setTitle(updatedTitle);
-  
-    // Update meta tags
-    this.meta.updateTag({ name: 'description', content: updatedDescription });
-    this.meta.updateTag({ name: 'author', content: 'BRFA Cars' });
-    this.meta.updateTag({ name: 'keywords', content: updatedKeywords });
-    this.meta.updateTag({ name: 'viewport', content: 'width=device-width, initial-scale=1' });
-    this.meta.updateTag({ httpEquiv: 'x-ua-compatible', content: 'ie=edge' });
-  
-    // Open Graph Tags
-    this.meta.updateTag({ property: 'og:title', content: updatedTitle });
-    this.meta.updateTag({ property: 'og:description', content: updatedDescription });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:url', content: updatedUrl });
-    this.meta.updateTag({ property: 'og:image', content: updatedMedia });
-  
-    // Twitter Card Tags
-    this.meta.updateTag({ name: 'twitter:title', content: updatedTitle });
-    this.meta.updateTag({ name: 'twitter:description', content: updatedDescription });
-    this.meta.updateTag({ name: 'twitter:image', content: updatedMedia });
-  
-    // Fallback title for older browsers
-    this.meta.updateTag({ title: updatedTitle });
-  }
-  
-/*   public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
+  public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
     this.setTitle('Location voiture aéroport marrakech - Location de Voiture à Marrakech');
 
     this.meta.updateTag({
@@ -165,7 +110,7 @@ export class LocationvoitureaeroportMarrakechComponent {
       title: 'Location voiture aéroport marrakech - Location de Voiture à Marrakech',
     });
   }
-   */
+  
   addJsonLdSchema() {
     const jsonLd = {
       "@context": "https://schema.org",
@@ -198,37 +143,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     this.renderer.appendChild(this.document.head, script);
   }
 
-  voitures: Voiture[] = 
-  [
-    { image: '../../assets/images/voitures/citroen_berlingo.png', title: 'Citroën Berlingo', model: 'Essence Manuel', fuel: 'Diesel', year: 2023, transmission: 'Manuel', price: 300, category: 'Citadine' },
-    { image: '../../assets/images/voitures/citroen_c3.png', title: 'Citroën C3', model: 'Diesel Automatique', fuel: 'Diesel', year: 2022, transmission: 'Manuel', price: 300, category: 'Citadine' },
-    { image: '../../assets/images/voitures/Citroen-C-Elysee.png', title: 'Citroën C-Elysee', model: 'Essence Manuel', fuel: 'Essence', year: 2021, transmission: 'Automatique', price: 250, category: 'Berline' },
-    { image: '../../assets/images/voitures/citroen-jumpy.png', title: 'Citroën Jumpy', model: 'Diesel Manuel', fuel: 'Diesel', year: 2020, transmission: 'Manuel', price: 400, category: 'Berline' },
-    { image: '../../assets/images/voitures/clio4.png', title: 'Renault Clio 4', model: 'Essence Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 350, category: 'SUV' },
-    { image: '../../assets/images/voitures/clio4.png', title: 'Renault Clio 4', model: 'Essence Automatique', fuel: 'Diesel', year: 2023, transmission: 'Manuel', price: 300, category: 'SUV' },
-    { image: '../../assets/images/voitures/dacia-dokker.png', title: 'Dacia Dokker', model: 'Diesel Manuel', fuel: 'Diesel', year: 2022, transmission: 'Manuel', price: 350, category: 'SUV' },
-    { image: '../../assets/images/voitures/dacia-duster.png', title: 'Dacia Duster', model: 'Essence Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 400, category: 'SUV' },
-    { image: '../../assets/images/voitures/dacia-lodgy.png', title: 'Dacia Lodgy', model: 'Diesel Manuel', fuel: 'Diesel', year: 2021, transmission: 'Manuel', price: 370, category: 'SUV' },
-    { image: '../../assets/images/voitures/dacia-logan.png', title: 'Dacia Logan', model: 'Diesel Manuel', fuel: 'Diesel', year: 2023, transmission: 'Manuel', price: 250, category: 'SUV' },
-    { image: '../../assets/images/voitures/dacia-logan.png', title: 'Dacia Logan', model: 'Diesel Manuel', fuel: 'Essence', year: 2024, transmission: 'Automatique', price: 220, category: 'SUV' },
-
-    { image: '../../assets/images/voitures/fiat_panda.png', title: 'Fiat Panda', model: 'Essence Manuel', fuel: 'Essence', year: 2022, transmission: 'Manuel', price: 200, category: 'Citadine' },
-    { image: '../../assets/images/voitures/fiat_punto.png', title: 'Fiat Punto', model: 'Essence Manuel', fuel: 'Diesel', year: 2022, transmission: 'Manuel', price: 300, category: 'Citadine' },
-    { image: '../../assets/images/voitures/fiat-500.png', title: 'Fiat 500', model: 'Essence Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 350, category: 'Citadine' },
-    { image: '../../assets/images/voitures/ford-fiesta.png', title: 'Ford Fiesta', model: 'Essence Manuel', fuel: 'Essence', year: 2021, transmission: 'Manuel', price: 300, category: 'Berline' },
-    { image: '../../assets/images/voitures/hyundai_elantra.png', title: 'Hyundai Elantra', model: 'Diesel Manuel', fuel: 'Diesel', year: 2022, transmission: 'Manuel', price: 380, category: 'SUV' },
-    { image: '../../assets/images/voitures/hyundai_i20.png', title: 'Hyundai i20', model: 'Essence Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 350, category: 'SUV' },
-    { image: '../../assets/images/voitures/hyundai_tucson.png', title: 'Hyundai Tucson', model: 'Essence Automatique', fuel: 'Essence', year: 2022, transmission: 'Automatique', price: 450, category: 'SUV' },
-    { image: '../../assets/images/voitures/hyundai-accent.png', title: 'Hyundai Accent', model: 'Essence Manuel', fuel: 'Essence', year: 2021, transmission: 'Automatique', price: 350, category: 'Berline' },
-    { image: '../../assets/images/voitures/hyundai-i10.png', title: 'Hyundai i10', model: 'Diesel Manuel', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 220, category: 'Citadine' },
-    { image: '../../assets/images/voitures/jeep_cherokee.png', title: 'Jeep Cherokee', model: 'Essence Automatique', fuel: 'Essence', year: 2018, transmission: 'Automatique', price: 500, category: '4x4' },
-    { image: '../../assets/images/voitures/jeep_rengant.png', title: 'Jeep Renegade', model: 'Diesel Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 500, category: '4x4' },
-    { image: '../../assets/images/voitures/kia-picanto.png', title: 'Kia Picanto', model: 'Essence Manuel', fuel: 'Essence', year: 2021, transmission: 'Automatique', price: 250, category: 'Citadine' },
-    { image: '../../assets/images/voitures/peugeot-208.png', title: 'Peugeot 208', model: 'Essence Automatique', fuel: 'Diesel', year: 2020, transmission: 'Manuel', price: 300, category: 'SUV' },
-    { image: '../../assets/images/voitures/renault_clio5.png', title: 'Renault Clio 5', model: 'Essence Manuel', fuel: 'Diesel', year: 2023, transmission: 'Manuel', price: 350, category: 'Berline' },
-    { image: '../../assets/images/voitures/skoda-fabia.png', title: 'Skoda Fabia', model: 'Diesel Manuel', fuel: 'Essence', year: 2018, transmission: 'Automatique', price: 450, category: 'Berline' },
-    { image: '../../assets/images/voitures/toyota-yaris.png', title: 'Toyota Yaris', model: 'Essence Automatique', fuel: 'Essence', year: 2023, transmission: 'Automatique', price: 400, category: 'Citadine' }
-];
+  
   loadScripts(): void {
     const scripts = [
       '/assets/js/jquery-3.7.1.min.js',
