@@ -52,7 +52,7 @@ export class LocationvoitureaeroportMarrakechComponent {
     this.title.setTitle(newTitle);
   }
   public setMetaTags(content:string,title:string,blogId:string,media:string,titleFormated:string,keywords:string): void {
-    this.setTitle("Location de Voiture à l'Aéroport de Marrakech - Ménar");
+    this.setTitle("Location Voiture Aéroport Marrakech - Agence Ménar");
 
     this.meta.updateTag({
       name: 'description',
