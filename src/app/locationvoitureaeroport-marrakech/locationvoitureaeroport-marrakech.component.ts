@@ -126,6 +126,15 @@ export class LocationvoitureaeroportMarrakechComponent {
         "ratingValue": "4.6374874",
         "reviewCount": "855"
       },
+      "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Aéroport Marrakech",
+  "addressLocality": "Marrakech",
+  "addressRegion": "Marrakech",
+  "postalCode": "40000",
+  "addressCountry": "MA"
+}
+,
       "reviews": [
         {
           "@type": "Review",
