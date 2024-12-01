@@ -34,7 +34,7 @@ export class BlogService {
       title: 'Découvrir Marrakech : 5 Activités Incontournables',
       description: 'Marrakech, ville mythique du Maroc, regorge de lieux à découvrir. Voici cinq activités incontournables à ne pas manquer.',
       imageUrl: '../../assets/images/city-marrakech1.jpg',
-      media: 'https://brfacars.com/assets/images/city-marrakech1.jpg',
+      media: 'https://www.brfacars.com/assets/images/city-marrakech1.jpg',
       publishDate: 'Novembre 2024',
       author: 'Mohammed A.',
       quote: 'Marrakech est le carrefour parfait entre histoire, culture et modernité.',
@@ -77,7 +77,7 @@ export class BlogService {
 
   description: 'Casablanca, la capitale économique du Maroc, allie modernité et traditions. Voici ce que vous devez savoir avant de visiter cette ville dynamique.',
   imageUrl: '../../assets/images/city-casablanca2.jpg',
-  media: 'https://brfacars.com/assets/images/city-casablanca2.jpg',
+  media: 'https://www.brfacars.com/assets/images/city-casablanca2.jpg',
 
   publishDate: 'Novembre 2024',
   author: 'Sara B.',
@@ -113,7 +113,7 @@ export class BlogService {
 
   description: 'Rabat, la capitale administrative du Maroc, est une ville riche en histoire et en culture. Voici ce que vous devez savoir avant de visiter.',
   imageUrl: '../../assets/images/city-rabat.jpg',
-  media: 'https://brfacars.com/assets/images/city-rabat.jpg',
+  media: 'https://www.brfacars.com/assets/images/city-rabat.jpg',
 
   publishDate: 'Novembre 2024',
   author: 'Ali C.',
@@ -151,7 +151,7 @@ export class BlogService {
 
   description: 'Tangier est une ville où la mer rencontre la culture. Découvrez ce qui fait de Tangier une destination unique au Maroc.',
   imageUrl: '../../assets/images/city-tanger.jpg',
-  media: 'https://brfacars.com/images/city-tanger.jpg',
+  media: 'https://www.brfacars.com/images/city-tanger.jpg',
 
   publishDate: 'Novembre 2024',
   author: 'Laila D.',
@@ -188,12 +188,12 @@ export class BlogService {
 },
 {
   id: 5,
-  title: "Location voiture aéroport Marrakech : Guide Complet",
+  title: "Location Voiture Marrakech Conseils",
   metaDescription: "Découvrez nos offres de location de voiture à Marrakech dès 7€/jour. Réservez en ligne et profitez d’un service rapide et fiable.",
   h1: "Location voiture aéroport Marrakech : Louez avec BrfaCars",
   description: "Tout ce que vous devez savoir pour louer une voiture à Marrakech. Conseils pratiques, meilleurs prix, et astuces pour voyager sereinement.",
   imageUrl: "../../assets/images/post7.webp",
-  media: "https://brfacars.com/assets/images/post7.webp",
+  media: "https://www.brfacars.com/assets/images/post7.webp",
   publishDate: "Novembre 2024",
   author: "BrfaCars",
   quote: "Agence de location à Marrakech, c’est la liberté de découvrir le Maroc à votre rythme.",

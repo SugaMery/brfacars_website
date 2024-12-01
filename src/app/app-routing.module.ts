@@ -9,10 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ServicesComponent } from './services/services.component';
+import { LocationDeVoitureMarrakechComponent } from './location-de-voiture-marrakech/location-de-voiture-marrakech.component';
+import { LocationvoitureaeroportMarrakechComponent } from './locationvoitureaeroport-marrakech/locationvoitureaeroport-marrakech.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'location-voiture-marrakech', component: HomeComponent },
+  { path: 'test', component: LocationvoitureaeroportMarrakechComponent },
 
   {path: 'voitures' , component: CarsListComponent},
   {path: 'apropos-de-nous' , component: AboutUsComponent},
