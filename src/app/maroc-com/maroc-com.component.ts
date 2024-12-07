@@ -22,37 +22,39 @@ export class MarocComComponent {
   }
 
   private setTitle(): void {
-    this.titleService.setTitle('Location de Voiture au Maroc - BrfaCars');
+    this.titleService.setTitle('Location de Voiture au Maroc - Réservez en Ligne avec BrfaCars');
   }
 
   private setMetaTags(): void {
     this.metaService.updateTag({
       name: 'description',
-      content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Profitez de tarifs compétitifs et d’un service de qualité pour explorer les villes du Maroc.',
+      content: 'Réservez une voiture au Maroc avec BrfaCars et explorez tout ce que le pays a à offrir. Des véhicules modernes à des prix compétitifs, prêts à vous accompagner dans vos aventures.',
     });
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'location de voiture Maroc, location voiture pas cher Maroc, louer une voiture au Maroc, voiture à louer Maroc',
+      content: 'location voiture Maroc, réserver voiture Maroc, voitures de location Maroc, explorer le Maroc en voiture',
     });
     this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
   
     // Open Graph Tags
     this.metaService.updateTag({
       property: 'og:title',
-      content: 'Location de Voiture au Maroc - BrfaCars',
+      content: 'Location de Voiture au Maroc - Réservez en Ligne avec BrfaCars',
     });
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Profitez de tarifs compétitifs et d’un service de qualité pour explorer les villes du Maroc.',
+      content: 'Réservez une voiture au Maroc avec BrfaCars et explorez tout ce que le pays a à offrir. Des véhicules modernes à des prix compétitifs, prêts à vous accompagner dans vos aventures.',
     });
     this.metaService.updateTag({
       property: 'og:image',
-      content: 'https://www.brfacars.com/assets/images/location-maroc.webp',
+      content: 'https://www.brfacars.com/assets/images/location-maroc-com.jpg',
     });
     this.metaService.updateTag({
       property: 'og:url',
-      content: 'https://www.brfacars.com/blog/location-voiture-maroc',
+      content: 'https://www.brfacars.com/location-maroc',
     });
   }
+  
+  
   
 }

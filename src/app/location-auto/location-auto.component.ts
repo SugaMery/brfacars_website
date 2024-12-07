@@ -22,37 +22,39 @@ export class LocationAutoComponent {
   }
 
   private setTitle(): void {
-    this.titleService.setTitle('Location de Voiture : Découvrez Nos Offres et Réservez Votre Véhicule');
+    this.titleService.setTitle('Location Auto au Maroc - Louez Facilement Votre Véhicule');
   }
 
   private setMetaTags(): void {
     this.metaService.updateTag({
       name: 'description',
-      content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.',
+      content: 'Explorez notre large sélection de voitures à louer avec BrfaCars. Réservez facilement et profitez de véhicules modernes pour tous vos déplacements au Maroc.',
     });
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'location auto, location de voiture, voitures de location, location véhicule',
+      content: 'location auto, location de voiture Maroc, voitures à louer, location de véhicules modernes',
     });
     this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
   
     // Open Graph Tags
     this.metaService.updateTag({
       property: 'og:title',
-      content: 'Location de Voiture : Découvrez Nos Offres et Réservez Votre Véhicule',
+      content: 'Location Auto au Maroc - Louez Facilement Votre Véhicule',
     });
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.',
+      content: 'Explorez notre large sélection de voitures à louer avec BrfaCars. Réservez facilement et profitez de véhicules modernes pour tous vos déplacements au Maroc.',
     });
     this.metaService.updateTag({
       property: 'og:image',
-      content: 'https://www.brfacars.com/assets/images/location-auto.jpg',
+      content: 'https://www.brfacars.com/assets/images/location-auto-maroc.jpg',
     });
     this.metaService.updateTag({
       property: 'og:url',
-      content: 'https://www.brfacars.com/blog/location-auto',
+      content: 'https://www.brfacars.com/location-auto',
     });
   }
+  
+  
   
 }

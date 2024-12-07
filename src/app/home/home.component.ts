@@ -291,6 +291,14 @@ export class HomeComponent implements OnInit {
       "areaServed": {
         "@type": "City",
         "name": "Marrakech"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Marrakech",  // Remplacez par l'adresse réelle
+        "addressLocality": "Marrakech",
+        "addressRegion": "Marrakech",
+        "postalCode": "40000",  // Remplacez par le code postal réel
+        "addressCountry": "MA"
       }
     };
 
