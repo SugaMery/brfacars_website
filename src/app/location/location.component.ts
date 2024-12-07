@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './location.component.css'
 })
 export class LocationComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -26,14 +26,33 @@ export class LocationComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez nos offres de location de véhicules et d\'excursions à travers le Maroc. Explorez les meilleures destinations et réservez vos aventures facilement.' },
-      { name: 'keywords', content: 'location de voiture, location Maroc, excursions Maroc, location de véhicules, voyage au Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Véhicules et Excursions : Découvrez Nos Offres' },
-      { property: 'og:description', content: 'Découvrez nos offres de location de véhicules et d\'excursions à travers le Maroc. Explorez les meilleures destinations et réservez vos aventures facilement.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-voiture.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location' }
-    ]);
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Découvrez nos offres de location de véhicules et d\'excursions à travers le Maroc. Explorez les meilleures destinations et réservez vos aventures facilement.',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'location de voiture, location Maroc, excursions Maroc, location de véhicules, voyage au Maroc',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Location de Véhicules et Excursions : Découvrez Nos Offres',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Découvrez nos offres de location de véhicules et d\'excursions à travers le Maroc. Explorez les meilleures destinations et réservez vos aventures facilement.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-voiture.jpg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location',
+    });
   }
+  
 }

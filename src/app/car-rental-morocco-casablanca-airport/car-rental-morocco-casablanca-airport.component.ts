@@ -26,14 +26,36 @@ export class CarRentalMoroccoCasablancaAirportComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Rent a car at Casablanca Mohammed V Airport for a smooth and convenient travel experience. Find affordable rental options and explore Casablanca and beyond with BrfaCars.' },
-      { name: 'keywords', content: 'car rental Casablanca Airport, rent a car at Casablanca Airport, car hire Casablanca Airport, affordable car rental Casablanca, Morocco car rental' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Car Rental at Casablanca Airport: Convenient and Affordable Options' },
-      { property: 'og:description', content: 'Rent a car at Casablanca Mohammed V Airport for a smooth and convenient travel experience. Find affordable rental options and explore Casablanca and beyond with BrfaCars.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/casablanca-airport-car-rental.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/car-rental-morocco-casablanca-airport' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Rent a car at Casablanca Mohammed V Airport for a smooth and convenient travel experience. Find affordable rental options and explore Casablanca and beyond with BrfaCars.'
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'car rental Casablanca Airport, rent a car at Casablanca Airport, car hire Casablanca Airport, affordable car rental Casablanca, Morocco car rental'
+    });
+    this.metaService.updateTag({
+      name: 'author',
+      content: 'BrfaCars'
+    });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Car Rental at Casablanca Airport: Convenient and Affordable Options'
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Rent a car at Casablanca Mohammed V Airport for a smooth and convenient travel experience. Find affordable rental options and explore Casablanca and beyond with BrfaCars.'
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/casablanca-airport-car-rental.jpg'
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/car-rental-morocco-casablanca-airport'
+    });
   }
+  
 }

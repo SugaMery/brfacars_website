@@ -27,14 +27,33 @@ export class OuzoudMarrakechComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez la magnifique Cascade d\'Ouzoud, à une courte distance de Marrakech. Profitez d\'une excursion guidée pour explorer cette beauté naturelle, l\'une des plus grandes chutes d\'eau du Maroc.' },
-      { name: 'keywords', content: 'Ouzoud Marrakech, excursion cascade d\'Ouzoud, chutes d\'eau Maroc, randonnée Marrakech, visite Ouzoud' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Cascade d\'Ouzoud - Excursion au départ de Marrakech' },
-      { property: 'og:description', content: 'Découvrez la magnifique Cascade d\'Ouzoud, à une courte distance de Marrakech. Profitez d\'une excursion guidée pour explorer cette beauté naturelle, l\'une des plus grandes chutes d\'eau du Maroc.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/ouzoud-cascade.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/ouzoud-marrakech' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Découvrez la magnifique Cascade d\'Ouzoud, à une courte distance de Marrakech. Profitez d\'une excursion guidée pour explorer cette beauté naturelle, l\'une des plus grandes chutes d\'eau du Maroc.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'Ouzoud Marrakech, excursion cascade d\'Ouzoud, chutes d\'eau Maroc, randonnée Marrakech, visite Ouzoud',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Cascade d\'Ouzoud - Excursion au départ de Marrakech',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Découvrez la magnifique Cascade d\'Ouzoud, à une courte distance de Marrakech. Profitez d\'une excursion guidée pour explorer cette beauté naturelle, l\'une des plus grandes chutes d\'eau du Maroc.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/ouzoud-cascade.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/ouzoud-marrakech',
+    });
   }
+  
 }

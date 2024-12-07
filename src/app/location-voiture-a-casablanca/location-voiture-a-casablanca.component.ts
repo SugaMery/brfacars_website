@@ -26,14 +26,33 @@ export class LocationVoitureACasablancaComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture à Casablanca avec BrfaCars et explorez cette ville dynamique du Maroc. Profitez de véhicules modernes à des prix compétitifs et vivez une expérience unique.' },
-      { name: 'keywords', content: 'location de voiture Casablanca, louer une voiture Casablanca, location auto Casablanca, voitures de location Casablanca, location véhicule Casablanca' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture à Casablanca : Explorez la Ville et ses Environs' },
-      { property: 'og:description', content: 'Louez une voiture à Casablanca avec BrfaCars et explorez cette ville dynamique du Maroc. Profitez de véhicules modernes à des prix compétitifs et vivez une expérience unique.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-casablanca.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-casablanca' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture à Casablanca avec BrfaCars et explorez cette ville dynamique du Maroc. Profitez de véhicules modernes à des prix compétitifs et vivez une expérience unique.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location de voiture Casablanca, louer une voiture Casablanca, location auto Casablanca, voitures de location Casablanca, location véhicule Casablanca',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture à Casablanca : Explorez la Ville et ses Environs',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture à Casablanca avec BrfaCars et explorez cette ville dynamique du Maroc. Profitez de véhicules modernes à des prix compétitifs et vivez une expérience unique.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-casablanca.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-casablanca',
+    });
   }
+  
 }

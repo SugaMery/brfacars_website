@@ -26,14 +26,33 @@ export class LocationAutoComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.' },
-      { name: 'keywords', content: 'location auto, location de voiture, voitures de location, location véhicule' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture : Découvrez Nos Offres et Réservez Votre Véhicule' },
-      { property: 'og:description', content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-auto.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-auto' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location auto, location de voiture, voitures de location, location véhicule',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture : Découvrez Nos Offres et Réservez Votre Véhicule',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Réservez votre voiture en ligne avec BrfaCars pour découvrir la ville à votre rythme. Des véhicules modernes, confortables et à prix compétitifs vous attendent.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-auto.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-auto',
+    });
   }
+  
 }

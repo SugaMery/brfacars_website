@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './asni.component.css'
 })
 export class AsniComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -25,15 +25,34 @@ export class AsniComponent {
     this.titleService.setTitle('Découvrir Asni : Explorez la Perle du Haut Atlas');
   }
 
-  private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez la ville d\'Asni, un joyau caché du Haut Atlas, idéal pour les amoureux de la nature et les aventuriers. Explorez les montagnes, les vallées et la culture berbère.' },
-      { name: 'keywords', content: 'Asni, Asni Haut Atlas, excursion Asni, culture berbère, voyage Asni, nature Haut Atlas' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Découvrir Asni : Explorez la Perle du Haut Atlas' },
-      { property: 'og:description', content: 'Découvrez la ville d\'Asni, un joyau caché du Haut Atlas, idéal pour les amoureux de la nature et les aventuriers. Explorez les montagnes, les vallées et la culture berbère.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/asni.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/asni' }
-    ]);
+  public setMetaTags(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Découvrez la ville d\'Asni, un joyau caché du Haut Atlas, idéal pour les amoureux de la nature et les aventuriers. Explorez les montagnes, les vallées et la culture berbère.',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'Asni, Asni Haut Atlas, excursion Asni, culture berbère, voyage Asni, nature Haut Atlas',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Découvrir Asni : Explorez la Perle du Haut Atlas',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Découvrez la ville d\'Asni, un joyau caché du Haut Atlas, idéal pour les amoureux de la nature et les aventuriers. Explorez les montagnes, les vallées et la culture berbère.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/asni.jpg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/asni',
+    });
   }
+  
 }

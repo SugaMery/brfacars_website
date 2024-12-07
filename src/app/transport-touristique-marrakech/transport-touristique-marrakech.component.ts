@@ -26,14 +26,33 @@ export class TransportTouristiqueMarrakechComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleures options de transport touristique à Marrakech. Explorez la ville en toute simplicité avec nos services de transport privés et en groupe.' },
-      { name: 'keywords', content: 'transport touristique Marrakech, taxi Marrakech, transport privé Marrakech, visites guidées Marrakech, transport aéroport Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Transport Touristique à Marrakech - Explorez la Ville avec Confort' },
-      { property: 'og:description', content: 'Découvrez les meilleures options de transport touristique à Marrakech. Explorez la ville en toute simplicité avec nos services de transport privés et en groupe.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/transport-marrakech.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/transport-touristique-marrakech' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Découvrez les meilleures options de transport touristique à Marrakech. Explorez la ville en toute simplicité avec nos services de transport privés et en groupe.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'transport touristique Marrakech, taxi Marrakech, transport privé Marrakech, visites guidées Marrakech, transport aéroport Marrakech',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Transport Touristique à Marrakech - Explorez la Ville avec Confort',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Découvrez les meilleures options de transport touristique à Marrakech. Explorez la ville en toute simplicité avec nos services de transport privés et en groupe.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/transport-marrakech.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/transport-touristique-marrakech',
+    });
   }
+  
 }

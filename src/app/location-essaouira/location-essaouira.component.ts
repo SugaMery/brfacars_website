@@ -26,14 +26,33 @@ export class LocationEssaouiraComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture à Essaouira avec BrfaCars pour explorer cette magnifique ville historique du Maroc. Profitez de véhicules modernes à des prix compétitifs.' },
-      { name: 'keywords', content: 'location de voiture Essaouira, louer une voiture Essaouira, location auto Essaouira, voitures de location Essaouira, location véhicule Essaouira' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture à Essaouira : Louez une voiture en ligne' },
-      { property: 'og:description', content: 'Louez une voiture à Essaouira avec BrfaCars pour explorer cette magnifique ville historique du Maroc. Profitez de véhicules modernes à des prix compétitifs.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-essaouira.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-essaouira' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture à Essaouira avec BrfaCars pour explorer cette magnifique ville historique du Maroc. Profitez de véhicules modernes à des prix compétitifs.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location de voiture Essaouira, louer une voiture Essaouira, location auto Essaouira, voitures de location Essaouira, location véhicule Essaouira',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture à Essaouira : Louez une voiture en ligne',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture à Essaouira avec BrfaCars pour explorer cette magnifique ville historique du Maroc. Profitez de véhicules modernes à des prix compétitifs.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-essaouira.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-essaouira',
+    });
   }
+  
 }

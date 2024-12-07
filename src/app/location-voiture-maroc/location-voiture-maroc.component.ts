@@ -26,14 +26,33 @@ export class LocationVoitureMarocComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture au Maroc pour découvrir ses villes fascinantes, ses paysages incroyables et ses plages. Découvrez nos prix compétitifs et notre large choix de véhicules.' },
-      { name: 'keywords', content: 'location voiture Maroc, louer voiture Maroc, voiture de location Maroc, location voiture Marrakech, location voiture Casablanca' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture au Maroc : Explorez le Royaume à Votre Rythme' },
-      { property: 'og:description', content: 'Louez une voiture au Maroc pour découvrir ses villes fascinantes, ses paysages incroyables et ses plages. Découvrez nos prix compétitifs et notre large choix de véhicules.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-maroc.webp' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-maroc' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture au Maroc pour découvrir ses villes fascinantes, ses paysages incroyables et ses plages. Découvrez nos prix compétitifs et notre large choix de véhicules.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location voiture Maroc, louer voiture Maroc, voiture de location Maroc, location voiture Marrakech, location voiture Casablanca',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture au Maroc : Explorez le Royaume à Votre Rythme',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture au Maroc pour découvrir ses villes fascinantes, ses paysages incroyables et ses plages. Découvrez nos prix compétitifs et notre large choix de véhicules.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-maroc.webp',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-maroc',
+    });
   }
+  
 }

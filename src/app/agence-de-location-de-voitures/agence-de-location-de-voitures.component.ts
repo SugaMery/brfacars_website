@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './agence-de-location-de-voitures.component.css'
 })
 export class AgenceDeLocationDeVoituresComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -24,16 +24,34 @@ export class AgenceDeLocationDeVoituresComponent {
   private setTitle(): void {
     this.titleService.setTitle('Location de Voitures à Agadir : Trouvez votre Voiture Idéale avec BrfaCars');
   }
-
-  private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleures offres de location de voitures à Agadir avec BrfaCars. Choisissez parmi une large gamme de véhicules pour tous vos besoins.' },
-      { name: 'keywords', content: 'location de voitures Agadir, agence de location de voitures Agadir, louer voiture Agadir, voiture pas cher Agadir' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voitures à Agadir : Trouvez votre Voiture Idéale avec BrfaCars' },
-      { property: 'og:description', content: 'Découvrez les meilleures offres de location de voitures à Agadir avec BrfaCars. Choisissez parmi une large gamme de véhicules pour tous vos besoins.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-voitures.jpeg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/agence-de-location-de-voitures' }
-    ]);
+  public setMetaTags(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Découvrez les meilleures offres de location de voitures à Agadir avec BrfaCars. Choisissez parmi une large gamme de véhicules pour tous vos besoins.',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'location de voitures Agadir, agence de location de voitures Agadir, louer voiture Agadir, voiture pas cher Agadir',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Location de Voitures à Agadir : Trouvez votre Voiture Idéale avec BrfaCars',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Découvrez les meilleures offres de location de voitures à Agadir avec BrfaCars. Choisissez parmi une large gamme de véhicules pour tous vos besoins.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-voitures.jpeg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/agence-de-location-de-voitures',
+    });
   }
+  
 }

@@ -26,14 +26,36 @@ export class CarRentalEssaouiraComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Rent a car in Essaouira with BrfaCars. Discover the charm of Morocco’s coastal city, from its historic medina to beautiful beaches, with flexible car rental options.' },
-      { name: 'keywords', content: 'Car rental Essaouira, rent a car Essaouira, Essaouira car hire, rent a car Morocco, Essaouira car rental services' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Car Rental in Essaouira: Explore Morocco’s Coastal Gem with Ease' },
-      { property: 'og:description', content: 'Rent a car in Essaouira with BrfaCars. Discover the charm of Morocco’s coastal city, from its historic medina to beautiful beaches, with flexible car rental options.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/essaouira-car-rental.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/car-rental-essaouira' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Rent a car in Essaouira with BrfaCars. Discover the charm of Morocco’s coastal city, from its historic medina to beautiful beaches, with flexible car rental options.'
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'Car rental Essaouira, rent a car Essaouira, Essaouira car hire, rent a car Morocco, Essaouira car rental services'
+    });
+    this.metaService.updateTag({
+      name: 'author',
+      content: 'BrfaCars'
+    });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Car Rental in Essaouira: Explore Morocco’s Coastal Gem with Ease'
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Rent a car in Essaouira with BrfaCars. Discover the charm of Morocco’s coastal city, from its historic medina to beautiful beaches, with flexible car rental options.'
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/essaouira-car-rental.jpg'
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/car-rental-essaouira'
+    });
   }
+  
 }

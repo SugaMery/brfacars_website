@@ -26,14 +26,33 @@ export class LocationVotureCasablancaComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture à Casablanca avec BrfaCars et explorez la capitale économique du Maroc. Profitez de nos tarifs compétitifs et d’un service de qualité.' },
-      { name: 'keywords', content: 'location voiture Casablanca, louer voiture Casablanca, voiture pas cher Casablanca, location voiture Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture à Casablanca - BrfaCars' },
-      { property: 'og:description', content: 'Louez une voiture à Casablanca avec BrfaCars et explorez la capitale économique du Maroc. Profitez de nos tarifs compétitifs et d’un service de qualité.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-casablanca.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-casablanca' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture à Casablanca avec BrfaCars et explorez la capitale économique du Maroc. Profitez de nos tarifs compétitifs et d’un service de qualité.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location voiture Casablanca, louer voiture Casablanca, voiture pas cher Casablanca, location voiture Maroc',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture à Casablanca - BrfaCars',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture à Casablanca avec BrfaCars et explorez la capitale économique du Maroc. Profitez de nos tarifs compétitifs et d’un service de qualité.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-casablanca.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-casablanca',
+    });
   }
+  
 }

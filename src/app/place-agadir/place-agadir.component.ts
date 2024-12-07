@@ -26,14 +26,33 @@ export class PlaceAgadirComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez la Place Mohammed V à Agadir, le cœur vibrant de la ville. Une belle place centrale entourée de cafés, commerces et points d\'intérêt, idéale pour une promenade.' },
-      { name: 'keywords', content: 'Place Agadir, Place Mohammed V Agadir, visite Agadir, attractions Agadir, promenade Agadir' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Place Mohammed V Agadir - Découvrez le Cœur de la Ville' },
-      { property: 'og:description', content: 'Découvrez la Place Mohammed V à Agadir, le cœur vibrant de la ville. Une belle place centrale entourée de cafés, commerces et points d\'intérêt, idéale pour une promenade.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/place-agadir.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/place-agadir' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Découvrez la Place Mohammed V à Agadir, le cœur vibrant de la ville. Une belle place centrale entourée de cafés, commerces et points d\'intérêt, idéale pour une promenade.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'Place Agadir, Place Mohammed V Agadir, visite Agadir, attractions Agadir, promenade Agadir',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Place Mohammed V Agadir - Découvrez le Cœur de la Ville',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Découvrez la Place Mohammed V à Agadir, le cœur vibrant de la ville. Une belle place centrale entourée de cafés, commerces et points d\'intérêt, idéale pour une promenade.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/place-agadir.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/place-agadir',
+    });
   }
+  
 }

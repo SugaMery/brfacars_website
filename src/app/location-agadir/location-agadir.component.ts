@@ -26,14 +26,33 @@ export class LocationAgadirComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Réservez votre véhicule à Agadir et explorez les merveilles de cette ville balnéaire et ses alentours. Profitez de tarifs compétitifs et d\'un service de qualité.' },
-      { name: 'keywords', content: 'location Agadir, location de voiture Agadir, excursions Agadir, location véhicule Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Véhicules à Agadir : Explorez la Ville et ses Environs' },
-      { property: 'og:description', content: 'Réservez votre véhicule à Agadir et explorez les merveilles de cette ville balnéaire et ses alentours. Profitez de tarifs compétitifs et d\'un service de qualité.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/agadir-location.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-agadir' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Réservez votre véhicule à Agadir et explorez les merveilles de cette ville balnéaire et ses alentours. Profitez de tarifs compétitifs et d\'un service de qualité.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location Agadir, location de voiture Agadir, excursions Agadir, location véhicule Maroc',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Véhicules à Agadir : Explorez la Ville et ses Environs',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Réservez votre véhicule à Agadir et explorez les merveilles de cette ville balnéaire et ses alentours. Profitez de tarifs compétitifs et d\'un service de qualité.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/agadir-location.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-agadir',
+    });
   }
+  
 }

@@ -26,14 +26,33 @@ export class MoroccoExcursionsComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Explorez les meilleures excursions au Maroc avec BrfaCars. Découvrez les paysages époustouflants du désert, les montagnes de l’Atlas et les villes impériales à travers des circuits sur mesure.' },
-      { name: 'keywords', content: 'excursions au Maroc, circuits touristiques, excursions désert Maroc, excursions Marrakech, visite guidée Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Excursions au Maroc - Explorez les Plus Beaux Sites' },
-      { property: 'og:description', content: 'Explorez les meilleures excursions au Maroc avec BrfaCars. Découvrez les paysages époustouflants du désert, les montagnes de l’Atlas et les villes impériales à travers des circuits sur mesure.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/morocco-excursions.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/morocco-excursions' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Explorez les meilleures excursions au Maroc avec BrfaCars. Découvrez les paysages époustouflants du désert, les montagnes de l’Atlas et les villes impériales à travers des circuits sur mesure.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'excursions au Maroc, circuits touristiques, excursions désert Maroc, excursions Marrakech, visite guidée Maroc',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Excursions au Maroc - Explorez les Plus Beaux Sites',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Explorez les meilleures excursions au Maroc avec BrfaCars. Découvrez les paysages époustouflants du désert, les montagnes de l’Atlas et les villes impériales à travers des circuits sur mesure.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/morocco-excursions.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/morocco-excursions',
+    });
   }
+  
 }

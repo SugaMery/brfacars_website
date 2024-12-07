@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './aeroport-marrakech.component.css'
 })
 export class AeroportMarrakechComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -25,15 +25,34 @@ export class AeroportMarrakechComponent {
     this.titleService.setTitle('Aéroport Marrakech-Menara : Votre Guide Complet pour Voyager à Marrakech | BrfaCars Blog');
   }
 
-  private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez tout ce que vous devez savoir sur l\'Aéroport Marrakech-Menara, l\'une des principales portes d\'entrée au Maroc. Réservez une voiture avec BrfaCars pour explorer Marrakech à votre rythme.' },
-      { name: 'keywords', content: 'aéroport Marrakech, Aéroport Marrakech-Menara, location voiture Marrakech, voyage Marrakech, BrfaCars blog, aéroport international Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Aéroport Marrakech-Menara : Votre Guide Complet pour Voyager à Marrakech | BrfaCars Blog' },
-      { property: 'og:description', content: 'Découvrez l\'Aéroport Marrakech-Menara, sa localisation, ses services, et comment réserver facilement une voiture à l\'arrivée pour visiter la ville et ses environs.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/aeroport-marrakech.jpeg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/aeroport-marrakech' }
-    ]);
+  public setMetaTags(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content: "Découvrez tout ce que vous devez savoir sur l'Aéroport Marrakech-Menara, l'une des principales portes d'entrée au Maroc. Réservez une voiture avec BrfaCars pour explorer Marrakech à votre rythme.",
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'aéroport Marrakech, Aéroport Marrakech-Menara, location voiture Marrakech, voyage Marrakech, BrfaCars blog, aéroport international Marrakech',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Aéroport Marrakech-Menara : Votre Guide Complet pour Voyager à Marrakech | BrfaCars Blog',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: "Découvrez l'Aéroport Marrakech-Menara, sa localisation, ses services, et comment réserver facilement une voiture à l'arrivée pour visiter la ville et ses environs.",
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/aeroport-marrakech.jpeg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/aeroport-marrakech',
+    });
   }
+  
 }

@@ -14,7 +14,10 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './excursion-agadir.component.css'
 })
 export class ExcursionAgadirComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private metaService: Meta) {
+    this.setTitle();
+    this.setMetaTags();
+  }
 
   ngOnInit(): void {
     this.setTitle();
@@ -26,14 +29,15 @@ export class ExcursionAgadirComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleures excursions à Agadir et explorez la ville ainsi que ses magnifiques environs. Profitez de circuits personnalisés pour une expérience inoubliable.' },
-      { name: 'keywords', content: 'excursion Agadir, excursions Agadir, visites Agadir, excursions Maroc, tours Agadir' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Excursions à Agadir : Découvrez les Trésors Cachés de la Ville et de Ses Environs' },
-      { property: 'og:description', content: 'Découvrez les meilleures excursions à Agadir et explorez la ville ainsi que ses magnifiques environs. Profitez de circuits personnalisés pour une expérience inoubliable.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/excursion-agadir.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/excursion-agadir' }
-    ]);
+    this.metaService.updateTag({ name: 'description', content: 'Découvrez les meilleures excursions à Agadir et explorez la ville ainsi que ses magnifiques environs. Profitez de circuits personnalisés pour une expérience inoubliable.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'excursion Agadir, excursions Agadir, visites Agadir, excursions Maroc, tours Agadir' });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({ property: 'og:title', content: 'Excursions à Agadir : Découvrez les Trésors Cachés de la Ville et de Ses Environs' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Découvrez les meilleures excursions à Agadir et explorez la ville ainsi que ses magnifiques environs. Profitez de circuits personnalisés pour une expérience inoubliable.' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://www.brfacars.com/assets/images/excursion-agadir.jpg' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://www.brfacars.com/blog/excursion-agadir' });
   }
+  
 }

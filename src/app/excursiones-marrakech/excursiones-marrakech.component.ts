@@ -26,14 +26,15 @@ export class ExcursionesMarrakechComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleures excursions à Marrakech, la Ville Rouge du Maroc. Explorez ses souks, ses monuments historiques et partez à l’aventure dans le désert ou les montagnes de l’Atlas.' },
-      { name: 'keywords', content: 'excursion Marrakech, visites Marrakech, excursions Maroc, tours Marrakech, souks Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Excursions à Marrakech : Découvrez la Ville Rouge et ses Environs' },
-      { property: 'og:description', content: 'Découvrez les meilleures excursions à Marrakech, la Ville Rouge du Maroc. Explorez ses souks, ses monuments historiques et partez à l’aventure dans le désert ou les montagnes de l’Atlas.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/excursion-marrakech.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/excursiones-marrakech' }
-    ]);
+    this.metaService.updateTag({ name: 'description', content: 'Découvrez les meilleures excursions à Marrakech, la Ville Rouge du Maroc. Explorez ses souks, ses monuments historiques et partez à l’aventure dans le désert ou les montagnes de l’Atlas.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'excursion Marrakech, visites Marrakech, excursions Maroc, tours Marrakech, souks Marrakech' });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+    
+    // Open Graph Tags
+    this.metaService.updateTag({ property: 'og:title', content: 'Excursions à Marrakech : Découvrez la Ville Rouge et ses Environs' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Découvrez les meilleures excursions à Marrakech, la Ville Rouge du Maroc. Explorez ses souks, ses monuments historiques et partez à l’aventure dans le désert ou les montagnes de l’Atlas.' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://www.brfacars.com/assets/images/excursion-marrakech.jpg' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://www.brfacars.com/blog/excursion-marrakech' });
+    
   }
 }

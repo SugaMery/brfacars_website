@@ -26,14 +26,33 @@ export class LocationVoitureMarrakechComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.' },
-      { name: 'keywords', content: 'location voiture Marrakech, louer voiture Marrakech, voiture de location Marrakech, location voiture pas cher Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture à Marrakech : Explorez la Ville Rouge à Votre Rythme' },
-      { property: 'og:description', content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-marrakech.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-marrakech' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location voiture Marrakech, louer voiture Marrakech, voiture de location Marrakech, location voiture pas cher Marrakech',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture à Marrakech : Explorez la Ville Rouge à Votre Rythme',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-marrakech.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-marrakech',
+    });
   }
+  
 }

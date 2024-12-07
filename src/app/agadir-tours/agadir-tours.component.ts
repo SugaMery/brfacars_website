@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './agadir-tours.component.css'
 })
 export class AgadirToursComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -25,15 +25,35 @@ export class AgadirToursComponent {
     this.titleService.setTitle('Tours à Agadir : Explorez Agadir et ses Environs avec BrfaCars');
   }
 
-  private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleurs tours à Agadir avec BrfaCars. Explorez la ville, ses plages, montagnes et souks avec nos excursions guidées et personnalisées.' },
-      { name: 'keywords', content: 'tours Agadir, excursions Agadir, visites guidées Agadir, tours de ville Agadir, excursions en groupe Agadir' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Tours à Agadir : Explorez Agadir et ses Environs avec BrfaCars' },
-      { property: 'og:description', content: 'Découvrez les meilleurs tours à Agadir avec BrfaCars. Explorez la ville, ses plages, montagnes et souks avec nos excursions guidées.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/agadir-tours.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/agadir-tours' }
-    ]);
+  public setMetaTags(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content: "Découvrez les meilleurs tours à Agadir avec BrfaCars. Explorez la ville, ses plages, montagnes et souks avec nos excursions guidées et personnalisées.",
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'tours Agadir, excursions Agadir, visites guidées Agadir, tours de ville Agadir, excursions en groupe Agadir',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Tours à Agadir : Explorez Agadir et ses Environs avec BrfaCars',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: "Découvrez les meilleurs tours à Agadir avec BrfaCars. Explorez la ville, ses plages, montagnes et souks avec nos excursions guidées.",
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/agadir-tours.jpg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/agadir-tours',
+    });
   }
+  
+  
 }

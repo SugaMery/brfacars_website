@@ -26,14 +26,33 @@ export class LocationVoitureMarrakechPasCherComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture pas chère à Marrakech avec BrfaCars. Profitez de nos tarifs avantageux et d’une large gamme de véhicules pour explorer la ville et ses alentours.' },
-      { name: 'keywords', content: 'location voiture pas cher Marrakech, location voiture Marrakech économique, voiture pas cher Marrakech, louer voiture pas cher à Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture Pas Cher à Marrakech - BrfaCars' },
-      { property: 'og:description', content: 'Louez une voiture pas chère à Marrakech avec BrfaCars. Profitez de nos tarifs avantageux et d’une large gamme de véhicules pour explorer la ville et ses alentours.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-marrakech-pas-cher.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-marrakech-pas-cher' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture pas chère à Marrakech avec BrfaCars. Profitez de nos tarifs avantageux et d’une large gamme de véhicules pour explorer la ville et ses alentours.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location voiture pas cher Marrakech, location voiture Marrakech économique, voiture pas cher Marrakech, louer voiture pas cher à Marrakech',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture Pas Cher à Marrakech - BrfaCars',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture pas chère à Marrakech avec BrfaCars. Profitez de nos tarifs avantageux et d’une large gamme de véhicules pour explorer la ville et ses alentours.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-marrakech-pas-cher.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-marrakech-pas-cher',
+    });
   }
+  
 }

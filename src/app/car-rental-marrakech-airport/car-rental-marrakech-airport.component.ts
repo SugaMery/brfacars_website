@@ -26,14 +26,36 @@ export class CarRentalMarrakechAirportComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Rent a car directly at Marrakech Menara Airport with BrfaCars. Choose from a variety of affordable cars and start your adventure in Marrakech without delay.' },
-      { name: 'keywords', content: 'Car rental Marrakech airport, rent a car Marrakech Menara, car hire Marrakech, rent a car Marrakech airport, affordable car rental Morocco' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Car Rental at Marrakech Airport: Convenient and Affordable Options' },
-      { property: 'og:description', content: 'Rent a car directly at Marrakech Menara Airport with BrfaCars. Choose from a variety of affordable cars and start your adventure in Marrakech without delay.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/marrakech-airport-car-rental.jpeg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/car-rental-marrakech-airport' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Rent a car directly at Marrakech Menara Airport with BrfaCars. Choose from a variety of affordable cars and start your adventure in Marrakech without delay.'
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'Car rental Marrakech airport, rent a car Marrakech Menara, car hire Marrakech, rent a car Marrakech airport, affordable car rental Morocco'
+    });
+    this.metaService.updateTag({
+      name: 'author',
+      content: 'BrfaCars'
+    });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Car Rental at Marrakech Airport: Convenient and Affordable Options'
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Rent a car directly at Marrakech Menara Airport with BrfaCars. Choose from a variety of affordable cars and start your adventure in Marrakech without delay.'
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/marrakech-airport-car-rental.jpeg'
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/car-rental-marrakech-airport'
+    });
   }
+  
 }

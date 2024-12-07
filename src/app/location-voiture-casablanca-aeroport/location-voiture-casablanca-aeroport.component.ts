@@ -26,14 +26,33 @@ export class LocationVoitureCasablancaAeroportComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Louez une voiture à l\'aéroport de Casablanca avec BrfaCars. Choisissez parmi une large gamme de véhicules à des prix compétitifs et profitez d\'un service rapide et fiable.' },
-      { name: 'keywords', content: 'location voiture Casablanca aéroport, louer voiture Casablanca aéroport, location voiture Maroc aéroport' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture à Casablanca Aéroport : Confort et Flexibilité' },
-      { property: 'og:description', content: 'Louez une voiture à l\'aéroport de Casablanca avec BrfaCars. Choisissez parmi une large gamme de véhicules à des prix compétitifs et profitez d\'un service rapide et fiable.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-casablanca-aeroport.webp' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-voiture-casablanca-aeroport' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Louez une voiture à l\'aéroport de Casablanca avec BrfaCars. Choisissez parmi une large gamme de véhicules à des prix compétitifs et profitez d\'un service rapide et fiable.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location voiture Casablanca aéroport, louer voiture Casablanca aéroport, location voiture Maroc aéroport',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture à Casablanca Aéroport : Confort et Flexibilité',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Louez une voiture à l\'aéroport de Casablanca avec BrfaCars. Choisissez parmi une large gamme de véhicules à des prix compétitifs et profitez d\'un service rapide et fiable.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-casablanca-aeroport.webp',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-voiture-casablanca-aeroport',
+    });
   }
+  
 }

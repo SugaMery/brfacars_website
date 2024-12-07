@@ -26,14 +26,33 @@ export class MoroccoExcursionComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez les meilleures excursions au Maroc avec BrfaCars. Explorez le désert, les montagnes de l’Atlas, et les villes impériales avec des visites guidées personnalisées.' },
-      { name: 'keywords', content: 'excursions au Maroc, visites guidées Maroc, circuits touristiques Maroc, excursions désert Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Excursions au Maroc - Explorez les Meilleurs Sites Touristiques' },
-      { property: 'og:description', content: 'Découvrez les meilleures excursions au Maroc avec BrfaCars. Explorez le désert, les montagnes de l’Atlas, et les villes impériales avec des visites guidées personnalisées.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/morocco-excursion.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/morocco-excursion' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Découvrez les meilleures excursions au Maroc avec BrfaCars. Explorez le désert, les montagnes de l’Atlas, et les villes impériales avec des visites guidées personnalisées.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'excursions au Maroc, visites guidées Maroc, circuits touristiques Maroc, excursions désert Maroc',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Excursions au Maroc - Explorez les Meilleurs Sites Touristiques',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Découvrez les meilleures excursions au Maroc avec BrfaCars. Explorez le désert, les montagnes de l’Atlas, et les villes impériales avec des visites guidées personnalisées.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/morocco-excursion.jpg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/morocco-excursion',
+    });
   }
+  
 }

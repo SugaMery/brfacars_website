@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './car-rental-agadir.component.css'
 })
 export class CarRentalAgadirComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -26,14 +26,33 @@ export class CarRentalAgadirComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Rent a car in Agadir with BrfaCars. Explore the stunning beaches, markets, and attractions of Agadir at your own pace with affordable car rental options.' },
-      { name: 'keywords', content: 'Car rental Agadir, rent a car Agadir, Agadir car hire, Agadir vehicle rental, car hire Morocco' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Car Rental in Agadir: Your Guide to Exploring the Beautiful City' },
-      { property: 'og:description', content: 'Rent a car in Agadir with BrfaCars. Explore the stunning beaches, markets, and attractions of Agadir at your own pace with affordable car rental options.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/agadir-car-rental.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/car-rental-agadir' }
-    ]);
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Rent a car in Agadir with BrfaCars. Explore the stunning beaches, markets, and attractions of Agadir at your own pace with affordable car rental options.',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'Car rental Agadir, rent a car Agadir, Agadir car hire, Agadir vehicle rental, car hire Morocco',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Car Rental in Agadir: Your Guide to Exploring the Beautiful City',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Rent a car in Agadir with BrfaCars. Explore the stunning beaches, markets, and attractions of Agadir at your own pace with affordable car rental options.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/agadir-car-rental.jpg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/car-rental-agadir',
+    });
   }
+  
 }

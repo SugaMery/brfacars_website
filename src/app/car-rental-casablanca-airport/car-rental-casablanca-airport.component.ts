@@ -14,7 +14,7 @@ import { PreloaderComponent } from '../preloader/preloader.component';
   styleUrl: './car-rental-casablanca-airport.component.css'
 })
 export class CarRentalCasablancaAirportComponent {
-  constructor(private titleService: Title, private metaService: Meta) {}
+  constructor(private titleService: Title, private meta: Meta) {}
 
   ngOnInit(): void {
     this.setTitle();
@@ -26,14 +26,33 @@ export class CarRentalCasablancaAirportComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Rent a car at Casablanca Airport with BrfaCars. Enjoy a seamless arrival in Morocco and explore the city and beyond with reliable car rental options directly at the airport.' },
-      { name: 'keywords', content: 'Car rental Casablanca Airport, rent a car Casablanca, Casablanca car hire, airport car rental Morocco, car rental Casablanca' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Car Rental at Casablanca Airport: Convenient and Reliable Options' },
-      { property: 'og:description', content: 'Rent a car at Casablanca Airport with BrfaCars. Enjoy a seamless arrival in Morocco and explore the city and beyond with reliable car rental options directly at the airport.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/casablanca-airport-car-rental.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/car-rental-casablanca-airport' }
-    ]);
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Rent a car at Casablanca Airport with BrfaCars. Enjoy a seamless arrival in Morocco and explore the city and beyond with reliable car rental options directly at the airport.',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'Car rental Casablanca Airport, rent a car Casablanca, Casablanca car hire, airport car rental Morocco, car rental Casablanca',
+    });
+    this.meta.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.meta.updateTag({
+      property: 'og:title',
+      content: 'Car Rental at Casablanca Airport: Convenient and Reliable Options',
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: 'Rent a car at Casablanca Airport with BrfaCars. Enjoy a seamless arrival in Morocco and explore the city and beyond with reliable car rental options directly at the airport.',
+    });
+    this.meta.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/casablanca-airport-car-rental.jpg',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/car-rental-casablanca-airport',
+    });
   }
+  
 }

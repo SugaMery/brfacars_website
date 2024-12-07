@@ -26,14 +26,33 @@ export class LocationDeVoitureMarocComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Explorez les villes, les plages, et les montagnes avec nos véhicules de location abordables et modernes.' },
-      { name: 'keywords', content: 'location de voiture Maroc, louer une voiture Maroc, location auto Maroc, voitures de location Maroc, location véhicule Maroc' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Location de Voiture au Maroc : Louez une voiture en ligne' },
-      { property: 'og:description', content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Explorez les villes, les plages, et les montagnes avec nos véhicules de location abordables et modernes.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/location-de-voiture-maroc.jpeg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/location-de-voiture-maroc' }
-    ]);
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Explorez les villes, les plages, et les montagnes avec nos véhicules de location abordables et modernes.',
+    });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'location de voiture Maroc, louer une voiture Maroc, location auto Maroc, voitures de location Maroc, location véhicule Maroc',
+    });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: 'Location de Voiture au Maroc : Louez une voiture en ligne',
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Découvrez le Maroc à votre rythme en louant une voiture avec BrfaCars. Explorez les villes, les plages, et les montagnes avec nos véhicules de location abordables et modernes.',
+    });
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https://www.brfacars.com/assets/images/location-de-voiture-maroc.jpeg',
+    });
+    this.metaService.updateTag({
+      property: 'og:url',
+      content: 'https://www.brfacars.com/blog/location-de-voiture-maroc',
+    });
   }
+  
 }

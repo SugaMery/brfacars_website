@@ -26,14 +26,15 @@ export class DepannageMarrakechComponent {
   }
 
   private setMetaTags(): void {
-    this.metaService.addTags([
-      { name: 'description', content: 'Besoin d\'un dépannage à Marrakech? Nos services de dépannage rapide et fiable couvrent tous vos besoins, que ce soit pour une panne de voiture, un appareil électroménager ou un dépannage d\'urgence.' },
-      { name: 'keywords', content: 'dépannage Marrakech, dépannage voiture Marrakech, dépannage électroménager Marrakech, dépannage urgence Marrakech, services dépannage Marrakech' },
-      { name: 'author', content: 'BrfaCars' },
-      { property: 'og:title', content: 'Dépannage à Marrakech: Services Rapides et Fiables' },
-      { property: 'og:description', content: 'Besoin d\'un dépannage à Marrakech? Nos services de dépannage rapide et fiable couvrent tous vos besoins, que ce soit pour une panne de voiture, un appareil électroménager ou un dépannage d\'urgence.' },
-      { property: 'og:image', content: 'https://www.brfacars.com/assets/images/depannage-marrakech.jpg' },
-      { property: 'og:url', content: 'https://www.brfacars.com/blog/depannage-marrakech' }
-    ]);
+    this.metaService.updateTag({ name: 'description', content: 'Besoin d\'un dépannage à Marrakech? Nos services de dépannage rapide et fiable couvrent tous vos besoins, que ce soit pour une panne de voiture, un appareil électroménager ou un dépannage d\'urgence.' });
+    this.metaService.updateTag({ name: 'keywords', content: 'dépannage Marrakech, dépannage voiture Marrakech, dépannage électroménager Marrakech, dépannage urgence Marrakech, services dépannage Marrakech' });
+    this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
+  
+    // Open Graph Tags
+    this.metaService.updateTag({ property: 'og:title', content: 'Dépannage à Marrakech: Services Rapides et Fiables' });
+    this.metaService.updateTag({ property: 'og:description', content: 'Besoin d\'un dépannage à Marrakech? Nos services de dépannage rapide et fiable couvrent tous vos besoins, que ce soit pour une panne de voiture, un appareil électroménager ou un dépannage d\'urgence.' });
+    this.metaService.updateTag({ property: 'og:image', content: 'https://www.brfacars.com/assets/images/depannage-marrakech.jpg' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://www.brfacars.com/blog/depannage-marrakech' });
   }
+  
 }
