@@ -64,7 +64,6 @@ import { TransportTouristiqueMarrakechComponent } from './transport-touristique-
 
 export const  routes: Routes = [
     { path: '', component: HomeComponent ,data: { title: 'Home' }},
-    { path: 'location-voiture-marrakech', component: HomeComponent },
     { path: 'contact', component: ReservationComponent, data: { title: 'Contact Us' } },
     {path: 'voitures' , component: CarsListComponent},
     {path: 'apropos-de-nous' , component: AboutUsComponent},
