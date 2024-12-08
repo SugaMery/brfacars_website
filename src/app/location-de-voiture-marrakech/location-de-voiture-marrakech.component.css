@@ -12,3 +12,103 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c9xAl.c9xAl-theme-default.c9xAl-mod-separator {
+    border-top: 1px solid #e5ebf0;
+}
+
+.HABP {
+    width: 100%;
+}
+
+.c9xAl.c9xAl-theme-default .c9xAl-question {
+    margin: 15px 0;
+}
+
+.HABP-button {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    list-style: none;
+}
+
+.c9xAl.c9xAl-mod-size-base .c9xAl-question {
+    font-family: 'TT Hoves Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.HABP-chevron.HABP-pres-theme-dark, .HABP-chevron.HABP-pres-theme-fd {
+    fill: #ffffff;
+}
+
+.HABP-chevron.HABP-mod-thin {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+}
+
+
+.Vdvb-title {
+    font-family: 'TT Hoves Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+}
+
+
+.Vdvb-header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.Vdvb.Vdvb-mod-size-standard .Vdvb-header-container {
+    margin: 40px 0 40px;
+}
+
+.KNh0-icon {
+    display: flex;
+    fill: #15844b;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.KNh0-item {
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .KNh0-item:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+.AHyT-insurance-link {
+    font-family: 'TT Hoves Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #198754;
+    margin-bottom: 8px;
+    width: fit-content;
+}
+
+
+.AHyT-links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
