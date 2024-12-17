@@ -28,11 +28,11 @@ export class LocationVoitureMarrakechComponent {
   private setMetaTags(): void {
     this.metaService.updateTag({
       name: 'description',
-      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.',
+      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules pour la <strong>location voiture Marrakech</strong>.',
     });
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'location voiture Marrakech, louer voiture Marrakech, voiture de location Marrakech, location voiture pas cher Marrakech',
+      content: 'location voiture Marrakech, louer voiture Marrakech, voiture de location Marrakech, location voiture pas cher Marrakech, voiture Marrakech, louer véhicule Marrakech',
     });
     this.metaService.updateTag({ name: 'author', content: 'BrfaCars' });
   
@@ -43,7 +43,7 @@ export class LocationVoitureMarrakechComponent {
     });
     this.metaService.updateTag({
       property: 'og:description',
-      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules.',
+      content: 'Louez une voiture à Marrakech pour découvrir la Ville Rouge à votre rythme. Profitez de nos prix compétitifs et de notre large choix de véhicules pour la location voiture Marrakech.',
     });
     this.metaService.updateTag({
       property: 'og:image',
@@ -54,5 +54,6 @@ export class LocationVoitureMarrakechComponent {
       content: 'https://www.brfacars.com/blog/location-voiture-marrakech',
     });
   }
+  
   
 }
