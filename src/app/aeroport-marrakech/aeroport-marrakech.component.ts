@@ -22,7 +22,7 @@ export class AeroportMarrakechComponent {
   }
 
   private setTitle(): void {
-    this.titleService.setTitle('Aéroport Marrakech-Menara : Votre Guide Complet');
+    this.titleService.setTitle('Aéroport Marrakech-Menara : Votre Guide Complet pour Voyager à Marrakech | BrfaCars Blog');
   }
 
   public setMetaTags(): void {

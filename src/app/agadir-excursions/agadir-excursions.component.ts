@@ -22,7 +22,7 @@ export class AgadirExcursionsComponent {
   }
 
   private setTitle(): void {
-    this.titleService.setTitle('Excursions à Agadir : Découvrez les Meilleures Activités');
+    this.titleService.setTitle('Excursions à Agadir : Découvrez les Meilleures Activités et Visites | BrfaCars Blog');
   }
 
   public setMetaTags(): void {
