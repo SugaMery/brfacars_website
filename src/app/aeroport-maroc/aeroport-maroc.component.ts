@@ -22,7 +22,7 @@ export class AeroportMarocComponent {
   }
 
   private setTitle(): void {
-    this.titleService.setTitle('Aéroports au Maroc : Découvrez les Meilleurs Aéroports du Royaume | BrfaCars Blog');
+    this.titleService.setTitle('Aéroports au Maroc : Découvrez les Meilleurs Aéroports');
   }
 
   public setMetaTags(): void {
